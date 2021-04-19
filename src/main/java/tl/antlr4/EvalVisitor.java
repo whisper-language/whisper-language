@@ -14,7 +14,9 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-import tl.antlr4.TLParser.*;
+import tl.antlr4.gen.*;
+import tl.antlr4.gen.TLParser.*;
+import tl.antlr4.gen.TLBaseVisitor;
 
 public class EvalVisitor extends TLBaseVisitor<TLValue> {
 	private static ReturnValue returnValue = new ReturnValue();
@@ -28,7 +30,7 @@ public class EvalVisitor extends TLBaseVisitor<TLValue> {
 
     // functionDecl
     @Override
-    public TLValue visitFunctionDecl(FunctionDeclContext ctx) {
+    public TLValue visitFunctionDecl(TLParser.FunctionDeclContext ctx) {
         List<TerminalNode> params = ctx.idList() != null ? ctx.idList().Identifier() : new ArrayList<TerminalNode>();
         ParseTree block = ctx.block();
         String id = ctx.Identifier().getText() + params.size();
@@ -39,10 +41,10 @@ public class EvalVisitor extends TLBaseVisitor<TLValue> {
     
     // list: '[' exprList? ']'
     @Override
-    public TLValue visitList(ListContext ctx) {
+    public TLValue visitList(TLParser.ListContext ctx) {
         List<TLValue> list = new ArrayList<>();
         if (ctx.exprList() != null) {
-	        for(ExpressionContext ex: ctx.exprList().expression()) {
+	        for(TLParser.ExpressionContext ex: ctx.exprList().expression()) {
 	            list.add(this.visit(ex));
 	        }
         }

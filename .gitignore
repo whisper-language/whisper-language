@@ -1,5 +1,4 @@
 .idea/
 target/
 *.iml
-src/main/java/tl/antlr4/TL*
-!src/main/java/tl/antlr4/TLValue
+src/main/java/tl/antlr4/gen
