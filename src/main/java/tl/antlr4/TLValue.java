@@ -9,7 +9,7 @@ public class TLValue implements Comparable<TLValue> {
 
     private Object value;
 
-    private TLValue() {
+    public TLValue() {
         // private constructor: only used for NULL and VOID
         value = new Object();
     }

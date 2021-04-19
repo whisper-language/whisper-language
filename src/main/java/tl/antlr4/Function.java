@@ -14,7 +14,7 @@ public class Function {
     private List<TerminalNode> params;
     private ParseTree block;
 
-    Function(Scope parentScope, List<TerminalNode> params, ParseTree block) {
+    public Function(Scope parentScope, List<TerminalNode> params, ParseTree block) {
         this.parentScope = parentScope;
         this.params = params;
         this.block = block;
