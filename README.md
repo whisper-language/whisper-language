@@ -88,7 +88,7 @@ download idea plugin ```ANTLR v4```
 
 set ANTLR config
 
-![ANTLR config]("./image/antlr_config.png")
+![ANTLR config](./image/antlr_config.png)
 
 ```
 Ctrl_Shift+G
