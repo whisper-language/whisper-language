@@ -7,12 +7,15 @@
 ```
 Ctrl_Shift+G
 ```
-# 在 android 中使用
+
+# maven 使用
 ```
-
-
+<dependency>
+  <groupId>net.crtrpt</groupId>
+  <artifactId>tiny-language</artifactId>
+  <version>${tiny-language-version}</version>
+</dependency>
 ```
-
 ## (Un)license
 
 [The Unlicense](http://unlicense.org)
