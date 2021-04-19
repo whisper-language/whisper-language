@@ -1,4 +1,4 @@
 .idea/
 target/
 *.iml
-src/main/java/tl/antlr4/gen/
+src/main/java/net/crtrpt/gen/

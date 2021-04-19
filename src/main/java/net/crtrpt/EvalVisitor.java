@@ -1,4 +1,4 @@
-package tl.antlr4;
+package net.crtrpt;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,13 +10,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.crtrpt.gen.TLBaseVisitor;
+import net.crtrpt.gen.TLLexer;
+import net.crtrpt.gen.TLParser;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-import tl.antlr4.gen.*;
-import tl.antlr4.gen.TLParser.*;
-import tl.antlr4.gen.TLBaseVisitor;
+
+import net.crtrpt.gen.TLParser.*;
 
 public class EvalVisitor extends TLBaseVisitor<TLValue> {
 	private static ReturnValue returnValue = new ReturnValue();
