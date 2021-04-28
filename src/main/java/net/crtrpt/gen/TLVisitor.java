@@ -35,6 +35,13 @@ public interface TLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAssignment(TLParser.AssignmentContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code buildInIdentifierFunctionCall}
+	 * labeled alternative in {@link TLParser#functionCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBuildInIdentifierFunctionCall(TLParser.BuildInIdentifierFunctionCallContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code identifierFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
 	 * @param ctx the parse tree

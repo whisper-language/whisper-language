@@ -13,13 +13,14 @@ public class Function {
     private List<TerminalNode> params;
     private ParseTree block;
 
+
     public Function(Scope parentScope, List<TerminalNode> params, ParseTree block) {
         this.parentScope = parentScope;
         this.params = params;
         this.block = block;
     }
-    
-    public TLValue invoke(List<TLValue> args, Map<String, Function> functions) {
+
+    public TLValue invoke(List<TLValue> args, Map<String, Function> functions, Map<String, BuildInFunction> buildFunction) {
         if (args.size() != this.params.size()) {
             throw new RuntimeException("Illegal Function call");
         }
@@ -27,15 +28,16 @@ public class Function {
 
         for (int i = 0; i < this.params.size(); i++) {
             TLValue value = args.get(i);
+            //获取每个函数的参数值
             scopeNext.assignParam(this.params.get(i).getText(), value);
         }
-        EvalVisitor evalVistorNext = new EvalVisitor(scopeNext,functions);
-        
+        EvalVisitor evalVistorNext = new EvalVisitor(scopeNext, functions,buildFunction);
+
         TLValue ret = TLValue.VOID;
         try {
-        	evalVistorNext.visit(this.block);
+            evalVistorNext.visit(this.block);
         } catch (ReturnValue returnValue) {
-        	ret = returnValue.value;
+            ret = returnValue.value;
         }
         return ret;
     }

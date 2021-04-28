@@ -48,6 +48,18 @@ public interface TLListener extends ParseTreeListener {
 	 */
 	void exitAssignment(TLParser.AssignmentContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code buildInIdentifierFunctionCall}
+	 * labeled alternative in {@link TLParser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void enterBuildInIdentifierFunctionCall(TLParser.BuildInIdentifierFunctionCallContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code buildInIdentifierFunctionCall}
+	 * labeled alternative in {@link TLParser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void exitBuildInIdentifierFunctionCall(TLParser.BuildInIdentifierFunctionCallContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code identifierFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
 	 * @param ctx the parse tree

@@ -5,6 +5,7 @@ import java.util.List;
 public class TLValue implements Comparable<TLValue> {
 
     public static final TLValue NULL = new TLValue();
+
     public static final TLValue VOID = new TLValue();
 
     private Object value;

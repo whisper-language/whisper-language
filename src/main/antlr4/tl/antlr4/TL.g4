@@ -21,7 +21,8 @@ assignment
  ;
 
 functionCall
- : Identifier '(' exprList? ')' #identifierFunctionCall
+ : BuildIdentifier '(' exprList? ')' #buildInIdentifierFunctionCall
+ | Identifier '(' exprList? ')' #identifierFunctionCall
  | Println '(' expression? ')'  #printlnFunctionCall
  | Print '(' expression ')'     #printFunctionCall
  | Assert '(' expression ')'    #assertFunctionCall
@@ -146,6 +147,10 @@ Bool
 
 Number
  : Int ( '.' Digit* )?
+ ;
+
+BuildIdentifier
+ : [@] [a-zA-Z_0-9]*
  ;
 
 Identifier

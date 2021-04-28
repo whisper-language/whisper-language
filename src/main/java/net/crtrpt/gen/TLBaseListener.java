@@ -64,6 +64,18 @@ public class TLBaseListener implements TLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterBuildInIdentifierFunctionCall(TLParser.BuildInIdentifierFunctionCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBuildInIdentifierFunctionCall(TLParser.BuildInIdentifierFunctionCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIdentifierFunctionCall(TLParser.IdentifierFunctionCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
