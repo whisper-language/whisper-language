@@ -19,7 +19,7 @@ public class Main {
             Scope scope = new Scope();
             Map<String, BuildInFunction> functions = new HashMap<>();
             //增加内建函数
-            functions.put("@sum", argv -> new TLValue(argv.stream().mapToLong(p-> p.asLong()).sum()));
+            functions.put("@sum", argv -> new TLValue(argv.stream().mapToLong(TLValue::asByte).sum()));
 
             EvalVisitor visitor = new EvalVisitor(scope, new HashMap<>(),functions);
             visitor.visit(tree);
