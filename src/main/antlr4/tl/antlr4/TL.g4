@@ -1,7 +1,7 @@
 grammar TL;
 
 parse
- : block EOF
+ : (block|statement) EOF
  ;
 
 block
@@ -30,31 +30,31 @@ functionCall
  ;
 
 ifStatement
- : ifStat elseIfStat* elseStat? End
+ : ifStat elseIfStat* elseStat?
  ;
 
 ifStat
- : If expression Do block
+ : If expression OBrace block CBrace
  ;
 
 elseIfStat
- : Else If expression Do block
+ : Else If expression OBrace block CBrace
  ;
 
 elseStat
- : Else Do block
+ : Else OBrace block  CBrace
  ;
 
 functionDecl
- : Def Identifier '(' idList? ')' block End
+ : Def Identifier '(' idList? ')'  OBrace block CBrace
  ;
 
 forStatement
- : For Identifier '=' expression To expression Do block End
+ : For Identifier '=' expression To expression OBrace block CBrace
  ;
 
 whileStatement
- : While expression Do block End
+ : While expression OBrace block CBrace
  ;
 
 idList

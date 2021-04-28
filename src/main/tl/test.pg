@@ -42,58 +42,58 @@ assert((4^3)^2 == 4096);
 
 // for- and while statements
 a = 0;
-for i=1 to 10 do
+for i=1 to 10 {
   a = a + i;
-end
+}
 assert(a == (1+2+3+4+5+6+7+8+9+10));
 
 b = -10;
 c = 0;
-while b < 0 do 
+while b < 0 {
   c = c + b;
   b = b + 1;
-end
+}
 assert(c == -(1+2+3+4+5+6+7+8+9+10));
 
 // if
 a = 123;
-if a > 200 do
+if a > 200 {
   assert(false);
-end
+}
 
-if a < 100 do
+if a < 100 {
   assert(false);
-else if a > 124 do
+} if a > 124 {
   assert(false);
-else if a < 124 do
+} if a < 124 {
   assert(true);
-else do
+}else {
   assert(false);
-end
+}
 
-if false do
+if false {
   assert(false);
-else do
+} else {
   assert(true);
-end
+}
 
 // functions
-def twice(n)
+def twice(n) {
   temp = n + n; 
   return temp; 
-end
+}
 
-def squared(n) 
+def squared(n)  {
   return n*n; 
-end
+}
 
-def squaredAndTwice(n) 
+def squaredAndTwice(n)  {
   return twice(squared(n)); 
-end
+}
 
-def list()
+def list() {
   return [7,8,9];
-end
+}
 
 assert(squared(666) == 666^2);
 assert(twice(squared(5)) == 50);
@@ -104,50 +104,51 @@ assert(size(list()) == 3);
 assert(list()[1] == 8);
 
 // naive bubble sort
-def sort(list)
-  while !sorted(list) do
-  end
-end
-def sorted(list)
+def sort(list) {
+  while !sorted(list) {
+  }
+}
+
+def sorted(list){
   n = size(list);
-  for i=0 to n-2 do
-    if list[i] > list[i+1] do
+  for i=0 to n-2 {
+    if list[i] > list[i+1] {
       temp = list[i+1];
       list[i+1] = list[i];
       list[i] = temp;
       return false;
-    end
-  end
+    }
+  }
   return true;
-end
+}
 numbers = [3,5,1,4,2];
 sort(numbers);
 assert(numbers == [1,2,3,4,5]);
 
 // recursive calls
-def fib(n)
-  if n < 2 do
+def fib(n) {
+  if n < 2 {
     return n;
-  else do
+  } else {
     return fib(n-2) + fib(n-1);
-  end
-end
+  }
+}
 assert(fib(4) == 3);
 sequence = [];
-for i = 0 to 10 do
+for i = 0 to 10 {
   sequence = sequence + fib(i);
-end
+}
 assert(sequence == [0,1,1,2,3,5,8,13,21,34,55]);
 
-def fib2(n)
-  if n < 2 do
+def fib2(n)         {
+  if n < 2 {
     return n;
-  else do
+  } else {
     a = fib2(n-2);
     c = fib2(n-1);
     return a + c;
-  end
-end
+  }
+}
 assert(fib2(4) == 3);
 
 // lists and lookups, `in` operator
@@ -161,4 +162,6 @@ assert(n[1][1] == n[2][2]);
 assert(p[2]);
 assert(p[1][2] == 'c');
 
-println("All Assertions have passed.");
+sum = @sum(1,2,3,4,5,6,7);
+    assert(sum == 29);
+println("全部测试通过.");

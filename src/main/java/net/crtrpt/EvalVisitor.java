@@ -1,6 +1,7 @@
 package net.crtrpt;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
@@ -579,7 +580,8 @@ public class EvalVisitor extends TLBaseVisitor<TLValue> {
         }
 
         if (!value.asBoolean()) {
-            throw new AssertionError("Failed Assertion " + ctx.expression().getText() + " line:" + ctx.start.getLine());
+            File f=new File(ctx.start.getInputStream().getSourceName());
+            throw new AssertionError("Assert failed:" + ctx.expression().getText() + " ("+f.getName()+":" + ctx.start.getLine()+")");
         }
 
         return TLValue.VOID;
