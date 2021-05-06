@@ -5,6 +5,9 @@ import 'dart:io';
 
 import 'TLListener.dart';
 import 'TLBaseListener.dart';
+import 'TLVisitor.dart';
+import 'TLBaseVisitor.dart';
+
 const int RULE_parse = 0, RULE_block = 1, RULE_statement = 2, RULE_assignment = 3, 
           RULE_functionCall = 4, RULE_ifStatement = 5, RULE_ifStat = 6, 
           RULE_elseIfStat = 7, RULE_elseStat = 8, RULE_functionDecl = 9, 
@@ -1239,6 +1242,14 @@ class ParseContext extends ParserRuleContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitParse(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitParse(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class BlockContext extends ParserRuleContext {
@@ -1260,6 +1271,14 @@ class BlockContext extends ParserRuleContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitBlock(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitBlock(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class StatementContext extends ParserRuleContext {
@@ -1280,6 +1299,14 @@ class StatementContext extends ParserRuleContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitStatement(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitStatement(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class AssignmentContext extends ParserRuleContext {
@@ -1297,6 +1324,14 @@ class AssignmentContext extends ParserRuleContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitAssignment(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitAssignment(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1327,6 +1362,14 @@ class IfStatementContext extends ParserRuleContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitIfStatement(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitIfStatement(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class IfStatContext extends ParserRuleContext {
@@ -1345,6 +1388,14 @@ class IfStatContext extends ParserRuleContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitIfStat(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitIfStat(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1366,6 +1417,14 @@ class ElseIfStatContext extends ParserRuleContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitElseIfStat(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitElseIfStat(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class ElseStatContext extends ParserRuleContext {
@@ -1383,6 +1442,14 @@ class ElseStatContext extends ParserRuleContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitElseStat(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitElseStat(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1405,6 +1472,14 @@ class FunctionDeclContext extends ParserRuleContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitFunctionDecl(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitFunctionDecl(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1429,6 +1504,14 @@ class ForStatementContext extends ParserRuleContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitForStatement(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitForStatement(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class WhileStatementContext extends ParserRuleContext {
@@ -1448,6 +1531,14 @@ class WhileStatementContext extends ParserRuleContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitWhileStatement(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitWhileStatement(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class IdListContext extends ParserRuleContext {
@@ -1466,6 +1557,14 @@ class IdListContext extends ParserRuleContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitIdList(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitIdList(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class ExprListContext extends ParserRuleContext {
@@ -1483,6 +1582,14 @@ class ExprListContext extends ParserRuleContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitExprList(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitExprList(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1512,6 +1619,14 @@ class ListContext extends ParserRuleContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitList(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitList(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class IndexesContext extends ParserRuleContext {
@@ -1532,6 +1647,14 @@ class IndexesContext extends ParserRuleContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitIndexes(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitIndexes(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class AssertFunctionCallContext extends FunctionCallContext {
@@ -1547,6 +1670,14 @@ class AssertFunctionCallContext extends FunctionCallContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitAssertFunctionCall(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitAssertFunctionCall(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1564,6 +1695,14 @@ class SizeFunctionCallContext extends FunctionCallContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitSizeFunctionCall(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitSizeFunctionCall(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class PrintlnFunctionCallContext extends FunctionCallContext {
@@ -1579,6 +1718,14 @@ class PrintlnFunctionCallContext extends FunctionCallContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitPrintlnFunctionCall(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitPrintlnFunctionCall(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1596,6 +1743,14 @@ class BuildInIdentifierFunctionCallContext extends FunctionCallContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitBuildInIdentifierFunctionCall(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitBuildInIdentifierFunctionCall(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class IdentifierFunctionCallContext extends FunctionCallContext {
@@ -1611,6 +1766,14 @@ class IdentifierFunctionCallContext extends FunctionCallContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitIdentifierFunctionCall(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitIdentifierFunctionCall(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1628,6 +1791,14 @@ class PrintFunctionCallContext extends FunctionCallContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitPrintFunctionCall(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitPrintFunctionCall(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }class BoolExpressionContext extends ExpressionContext {
   TerminalNode Bool() => getToken(TLParser.TOKEN_Bool, 0);
   BoolExpressionContext(ExpressionContext ctx) { copyFrom(ctx); }
@@ -1638,6 +1809,14 @@ class PrintFunctionCallContext extends FunctionCallContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitBoolExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitBoolExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1651,6 +1830,14 @@ class NumberExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitNumberExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitNumberExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1666,6 +1853,14 @@ class IdentifierExpressionContext extends ExpressionContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitIdentifierExpression(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitIdentifierExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class NotExpressionContext extends ExpressionContext {
@@ -1679,6 +1874,14 @@ class NotExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitNotExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitNotExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1695,6 +1898,14 @@ class OrExpressionContext extends ExpressionContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitOrExpression(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitOrExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class UnaryMinusExpressionContext extends ExpressionContext {
@@ -1708,6 +1919,14 @@ class UnaryMinusExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitUnaryMinusExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitUnaryMinusExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1723,6 +1942,14 @@ class PowerExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitPowerExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitPowerExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1741,6 +1968,14 @@ class EqExpressionContext extends ExpressionContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitEqExpression(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitEqExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class AndExpressionContext extends ExpressionContext {
@@ -1755,6 +1990,14 @@ class AndExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitAndExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitAndExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1771,6 +2014,14 @@ class InExpressionContext extends ExpressionContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitInExpression(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitInExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class StringExpressionContext extends ExpressionContext {
@@ -1784,6 +2035,14 @@ class StringExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitStringExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitStringExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1801,6 +2060,14 @@ class ExpressionExpressionContext extends ExpressionContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitExpressionExpression(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitExpressionExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class AddExpressionContext extends ExpressionContext {
@@ -1817,6 +2084,14 @@ class AddExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitAddExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitAddExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1837,6 +2112,14 @@ class CompExpressionContext extends ExpressionContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitCompExpression(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitCompExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class NullExpressionContext extends ExpressionContext {
@@ -1849,6 +2132,14 @@ class NullExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitNullExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitNullExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1863,6 +2154,14 @@ class FunctionCallExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitFunctionCallExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitFunctionCallExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1882,6 +2181,14 @@ class MultExpressionContext extends ExpressionContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitMultExpression(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitMultExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class ListExpressionContext extends ExpressionContext {
@@ -1895,6 +2202,14 @@ class ListExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitListExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitListExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
 
@@ -1912,6 +2227,14 @@ class TernaryExpressionContext extends ExpressionContext {
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitTernaryExpression(this);
   }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitTernaryExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
+  }
 }
 
 class InputExpressionContext extends ExpressionContext {
@@ -1927,5 +2250,13 @@ class InputExpressionContext extends ExpressionContext {
   @override
   void exitRule(ParseTreeListener listener) {
     if (listener is TLListener) listener.exitInputExpression(this);
+  }
+  @override
+  T accept<T>(ParseTreeVisitor<T> visitor) {
+    if (visitor is TLVisitor<T>) {
+     return visitor.visitInputExpression(this);
+    } else {
+    	return visitor.visitChildren(this);
+    }
   }
 }
