@@ -1,15 +1,11 @@
-/*
-    A script for testing Tiny Language syntax.
-*/
-
-// boolean expressions
+// 布尔表达式
 assert(true || false);
 assert(!false);
 assert(true && true);
 assert(!true || !false);
 assert(true && (true || false));
 
-// relational expressions
+// 关系表达式
 assert(1 < 2);
 assert(666 >= 666);
 assert(-5 > -6);
@@ -166,4 +162,4 @@ sum = @sum(1,2,3,4,5,6,7);
 
 assert(sum == 28);
 
-println("全部测试通过.");
+println("全部测试通过!");
