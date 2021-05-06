@@ -1,4 +1,4 @@
-// Generated from D:/private/tiny-language-antlr4/src/main/antlr4/tl/antlr4\TL.g4 by ANTLR 4.9.1
+// Generated from D:/private/tiny-language-antlr4\TL.g4 by ANTLR 4.9.1
 package net.crtrpt.gen;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 

@@ -17,11 +17,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
-        </dependency>
 
         <dependency>
             <groupId>org.antlr</groupId>
@@ -50,11 +45,11 @@
             <version>1.2.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy -->
+        <!-- https://mvnrepository.com/artifact/org.ow2.asm/asm -->
         <dependency>
-            <groupId>net.bytebuddy</groupId>
-            <artifactId>byte-buddy</artifactId>
-            <version>1.11.0</version>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>9.1</version>
         </dependency>
 
     </dependencies>

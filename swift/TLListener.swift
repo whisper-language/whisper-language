@@ -1,472 +1,553 @@
-// Generated from D:/private/tiny-language-antlr4\TL.g4 by ANTLR 4.9.1
-package net.crtrpt.gen;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
+// Generated from ./TL.g4 by ANTLR 4.9.2
+import Antlr4
 
 /**
  * This interface defines a complete listener for a parse tree produced by
  * {@link TLParser}.
  */
-public interface TLListener extends ParseTreeListener {
+public protocol TLListener: ParseTreeListener {
 	/**
 	 * Enter a parse tree produced by {@link TLParser#parse}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterParse(TLParser.ParseContext ctx);
+	func enterParse(_ ctx: TLParser.ParseContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#parse}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitParse(TLParser.ParseContext ctx);
+	func exitParse(_ ctx: TLParser.ParseContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#block}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterBlock(TLParser.BlockContext ctx);
+	func enterBlock(_ ctx: TLParser.BlockContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#block}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitBlock(TLParser.BlockContext ctx);
+	func exitBlock(_ ctx: TLParser.BlockContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#statement}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterStatement(TLParser.StatementContext ctx);
+	func enterStatement(_ ctx: TLParser.StatementContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#statement}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitStatement(TLParser.StatementContext ctx);
+	func exitStatement(_ ctx: TLParser.StatementContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#assignment}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterAssignment(TLParser.AssignmentContext ctx);
+	func enterAssignment(_ ctx: TLParser.AssignmentContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#assignment}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitAssignment(TLParser.AssignmentContext ctx);
+	func exitAssignment(_ ctx: TLParser.AssignmentContext)
 	/**
 	 * Enter a parse tree produced by the {@code buildInIdentifierFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterBuildInIdentifierFunctionCall(TLParser.BuildInIdentifierFunctionCallContext ctx);
+	func enterBuildInIdentifierFunctionCall(_ ctx: TLParser.BuildInIdentifierFunctionCallContext)
 	/**
 	 * Exit a parse tree produced by the {@code buildInIdentifierFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitBuildInIdentifierFunctionCall(TLParser.BuildInIdentifierFunctionCallContext ctx);
+	func exitBuildInIdentifierFunctionCall(_ ctx: TLParser.BuildInIdentifierFunctionCallContext)
 	/**
 	 * Enter a parse tree produced by the {@code identifierFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterIdentifierFunctionCall(TLParser.IdentifierFunctionCallContext ctx);
+	func enterIdentifierFunctionCall(_ ctx: TLParser.IdentifierFunctionCallContext)
 	/**
 	 * Exit a parse tree produced by the {@code identifierFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitIdentifierFunctionCall(TLParser.IdentifierFunctionCallContext ctx);
+	func exitIdentifierFunctionCall(_ ctx: TLParser.IdentifierFunctionCallContext)
 	/**
 	 * Enter a parse tree produced by the {@code printlnFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterPrintlnFunctionCall(TLParser.PrintlnFunctionCallContext ctx);
+	func enterPrintlnFunctionCall(_ ctx: TLParser.PrintlnFunctionCallContext)
 	/**
 	 * Exit a parse tree produced by the {@code printlnFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitPrintlnFunctionCall(TLParser.PrintlnFunctionCallContext ctx);
+	func exitPrintlnFunctionCall(_ ctx: TLParser.PrintlnFunctionCallContext)
 	/**
 	 * Enter a parse tree produced by the {@code printFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterPrintFunctionCall(TLParser.PrintFunctionCallContext ctx);
+	func enterPrintFunctionCall(_ ctx: TLParser.PrintFunctionCallContext)
 	/**
 	 * Exit a parse tree produced by the {@code printFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitPrintFunctionCall(TLParser.PrintFunctionCallContext ctx);
+	func exitPrintFunctionCall(_ ctx: TLParser.PrintFunctionCallContext)
 	/**
 	 * Enter a parse tree produced by the {@code assertFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterAssertFunctionCall(TLParser.AssertFunctionCallContext ctx);
+	func enterAssertFunctionCall(_ ctx: TLParser.AssertFunctionCallContext)
 	/**
 	 * Exit a parse tree produced by the {@code assertFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitAssertFunctionCall(TLParser.AssertFunctionCallContext ctx);
+	func exitAssertFunctionCall(_ ctx: TLParser.AssertFunctionCallContext)
 	/**
 	 * Enter a parse tree produced by the {@code sizeFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterSizeFunctionCall(TLParser.SizeFunctionCallContext ctx);
+	func enterSizeFunctionCall(_ ctx: TLParser.SizeFunctionCallContext)
 	/**
 	 * Exit a parse tree produced by the {@code sizeFunctionCall}
 	 * labeled alternative in {@link TLParser#functionCall}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitSizeFunctionCall(TLParser.SizeFunctionCallContext ctx);
+	func exitSizeFunctionCall(_ ctx: TLParser.SizeFunctionCallContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#ifStatement}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterIfStatement(TLParser.IfStatementContext ctx);
+	func enterIfStatement(_ ctx: TLParser.IfStatementContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#ifStatement}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitIfStatement(TLParser.IfStatementContext ctx);
+	func exitIfStatement(_ ctx: TLParser.IfStatementContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#ifStat}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterIfStat(TLParser.IfStatContext ctx);
+	func enterIfStat(_ ctx: TLParser.IfStatContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#ifStat}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitIfStat(TLParser.IfStatContext ctx);
+	func exitIfStat(_ ctx: TLParser.IfStatContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#elseIfStat}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterElseIfStat(TLParser.ElseIfStatContext ctx);
+	func enterElseIfStat(_ ctx: TLParser.ElseIfStatContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#elseIfStat}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitElseIfStat(TLParser.ElseIfStatContext ctx);
+	func exitElseIfStat(_ ctx: TLParser.ElseIfStatContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#elseStat}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterElseStat(TLParser.ElseStatContext ctx);
+	func enterElseStat(_ ctx: TLParser.ElseStatContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#elseStat}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitElseStat(TLParser.ElseStatContext ctx);
+	func exitElseStat(_ ctx: TLParser.ElseStatContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#functionDecl}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterFunctionDecl(TLParser.FunctionDeclContext ctx);
+	func enterFunctionDecl(_ ctx: TLParser.FunctionDeclContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#functionDecl}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitFunctionDecl(TLParser.FunctionDeclContext ctx);
+	func exitFunctionDecl(_ ctx: TLParser.FunctionDeclContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#forStatement}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterForStatement(TLParser.ForStatementContext ctx);
+	func enterForStatement(_ ctx: TLParser.ForStatementContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#forStatement}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitForStatement(TLParser.ForStatementContext ctx);
+	func exitForStatement(_ ctx: TLParser.ForStatementContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#whileStatement}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterWhileStatement(TLParser.WhileStatementContext ctx);
+	func enterWhileStatement(_ ctx: TLParser.WhileStatementContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#whileStatement}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitWhileStatement(TLParser.WhileStatementContext ctx);
+	func exitWhileStatement(_ ctx: TLParser.WhileStatementContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#idList}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterIdList(TLParser.IdListContext ctx);
+	func enterIdList(_ ctx: TLParser.IdListContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#idList}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitIdList(TLParser.IdListContext ctx);
+	func exitIdList(_ ctx: TLParser.IdListContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#exprList}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterExprList(TLParser.ExprListContext ctx);
+	func enterExprList(_ ctx: TLParser.ExprListContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#exprList}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitExprList(TLParser.ExprListContext ctx);
+	func exitExprList(_ ctx: TLParser.ExprListContext)
 	/**
 	 * Enter a parse tree produced by the {@code boolExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterBoolExpression(TLParser.BoolExpressionContext ctx);
+	func enterBoolExpression(_ ctx: TLParser.BoolExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code boolExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitBoolExpression(TLParser.BoolExpressionContext ctx);
+	func exitBoolExpression(_ ctx: TLParser.BoolExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code numberExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterNumberExpression(TLParser.NumberExpressionContext ctx);
+	func enterNumberExpression(_ ctx: TLParser.NumberExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code numberExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitNumberExpression(TLParser.NumberExpressionContext ctx);
+	func exitNumberExpression(_ ctx: TLParser.NumberExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code identifierExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterIdentifierExpression(TLParser.IdentifierExpressionContext ctx);
+	func enterIdentifierExpression(_ ctx: TLParser.IdentifierExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code identifierExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitIdentifierExpression(TLParser.IdentifierExpressionContext ctx);
+	func exitIdentifierExpression(_ ctx: TLParser.IdentifierExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code notExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterNotExpression(TLParser.NotExpressionContext ctx);
+	func enterNotExpression(_ ctx: TLParser.NotExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code notExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitNotExpression(TLParser.NotExpressionContext ctx);
+	func exitNotExpression(_ ctx: TLParser.NotExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code orExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterOrExpression(TLParser.OrExpressionContext ctx);
+	func enterOrExpression(_ ctx: TLParser.OrExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code orExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitOrExpression(TLParser.OrExpressionContext ctx);
+	func exitOrExpression(_ ctx: TLParser.OrExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code unaryMinusExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterUnaryMinusExpression(TLParser.UnaryMinusExpressionContext ctx);
+	func enterUnaryMinusExpression(_ ctx: TLParser.UnaryMinusExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code unaryMinusExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitUnaryMinusExpression(TLParser.UnaryMinusExpressionContext ctx);
+	func exitUnaryMinusExpression(_ ctx: TLParser.UnaryMinusExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code powerExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterPowerExpression(TLParser.PowerExpressionContext ctx);
+	func enterPowerExpression(_ ctx: TLParser.PowerExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code powerExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitPowerExpression(TLParser.PowerExpressionContext ctx);
+	func exitPowerExpression(_ ctx: TLParser.PowerExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code eqExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterEqExpression(TLParser.EqExpressionContext ctx);
+	func enterEqExpression(_ ctx: TLParser.EqExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code eqExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitEqExpression(TLParser.EqExpressionContext ctx);
+	func exitEqExpression(_ ctx: TLParser.EqExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code andExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterAndExpression(TLParser.AndExpressionContext ctx);
+	func enterAndExpression(_ ctx: TLParser.AndExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code andExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitAndExpression(TLParser.AndExpressionContext ctx);
+	func exitAndExpression(_ ctx: TLParser.AndExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code inExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterInExpression(TLParser.InExpressionContext ctx);
+	func enterInExpression(_ ctx: TLParser.InExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code inExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitInExpression(TLParser.InExpressionContext ctx);
+	func exitInExpression(_ ctx: TLParser.InExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code stringExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterStringExpression(TLParser.StringExpressionContext ctx);
+	func enterStringExpression(_ ctx: TLParser.StringExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code stringExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitStringExpression(TLParser.StringExpressionContext ctx);
+	func exitStringExpression(_ ctx: TLParser.StringExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code expressionExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterExpressionExpression(TLParser.ExpressionExpressionContext ctx);
+	func enterExpressionExpression(_ ctx: TLParser.ExpressionExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code expressionExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitExpressionExpression(TLParser.ExpressionExpressionContext ctx);
+	func exitExpressionExpression(_ ctx: TLParser.ExpressionExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code addExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterAddExpression(TLParser.AddExpressionContext ctx);
+	func enterAddExpression(_ ctx: TLParser.AddExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code addExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitAddExpression(TLParser.AddExpressionContext ctx);
+	func exitAddExpression(_ ctx: TLParser.AddExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code compExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterCompExpression(TLParser.CompExpressionContext ctx);
+	func enterCompExpression(_ ctx: TLParser.CompExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code compExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitCompExpression(TLParser.CompExpressionContext ctx);
+	func exitCompExpression(_ ctx: TLParser.CompExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code nullExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterNullExpression(TLParser.NullExpressionContext ctx);
+	func enterNullExpression(_ ctx: TLParser.NullExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code nullExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitNullExpression(TLParser.NullExpressionContext ctx);
+	func exitNullExpression(_ ctx: TLParser.NullExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code functionCallExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterFunctionCallExpression(TLParser.FunctionCallExpressionContext ctx);
+	func enterFunctionCallExpression(_ ctx: TLParser.FunctionCallExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code functionCallExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitFunctionCallExpression(TLParser.FunctionCallExpressionContext ctx);
+	func exitFunctionCallExpression(_ ctx: TLParser.FunctionCallExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code multExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterMultExpression(TLParser.MultExpressionContext ctx);
+	func enterMultExpression(_ ctx: TLParser.MultExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code multExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitMultExpression(TLParser.MultExpressionContext ctx);
+	func exitMultExpression(_ ctx: TLParser.MultExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code listExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterListExpression(TLParser.ListExpressionContext ctx);
+	func enterListExpression(_ ctx: TLParser.ListExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code listExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitListExpression(TLParser.ListExpressionContext ctx);
+	func exitListExpression(_ ctx: TLParser.ListExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code ternaryExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterTernaryExpression(TLParser.TernaryExpressionContext ctx);
+	func enterTernaryExpression(_ ctx: TLParser.TernaryExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code ternaryExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitTernaryExpression(TLParser.TernaryExpressionContext ctx);
+	func exitTernaryExpression(_ ctx: TLParser.TernaryExpressionContext)
 	/**
 	 * Enter a parse tree produced by the {@code inputExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterInputExpression(TLParser.InputExpressionContext ctx);
+	func enterInputExpression(_ ctx: TLParser.InputExpressionContext)
 	/**
 	 * Exit a parse tree produced by the {@code inputExpression}
 	 * labeled alternative in {@link TLParser#expression}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitInputExpression(TLParser.InputExpressionContext ctx);
+	func exitInputExpression(_ ctx: TLParser.InputExpressionContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#list}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterList(TLParser.ListContext ctx);
+	func enterList(_ ctx: TLParser.ListContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#list}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitList(TLParser.ListContext ctx);
+	func exitList(_ ctx: TLParser.ListContext)
 	/**
 	 * Enter a parse tree produced by {@link TLParser#indexes}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void enterIndexes(TLParser.IndexesContext ctx);
+	func enterIndexes(_ ctx: TLParser.IndexesContext)
 	/**
 	 * Exit a parse tree produced by {@link TLParser#indexes}.
-	 * @param ctx the parse tree
+	 - Parameters:
+	   - ctx: the parse tree
 	 */
-	void exitIndexes(TLParser.IndexesContext ctx);
+	func exitIndexes(_ ctx: TLParser.IndexesContext)
 }
