@@ -78,20 +78,20 @@ if false {
 }
 
 // functions
-def twice(n) {
+func twice(n) {
   temp = n + n; 
   return temp; 
 }
 
-def squared(n)  {
+func squared(n)  {
   return n*n; 
 }
 
-def squaredAndTwice(n)  {
+func squaredAndTwice(n)  {
   return twice(squared(n)); 
 }
 
-def list() {
+func list() {
   return [7,8,9];
 }
 
@@ -104,12 +104,12 @@ assert(size(list()) == 3);
 assert(list()[1] == 8);
 
 // naive bubble sort
-def sort(list) {
+func sort(list) {
   while !sorted(list) {
   }
 }
 
-def sorted(list){
+func sorted(list){
   n = size(list);
   for i=0 to n-2 {
     if list[i] > list[i+1] {
@@ -126,7 +126,7 @@ sort(numbers);
 assert(numbers == [1,2,3,4,5]);
 
 // recursive calls
-def fib(n) {
+func fib(n) {
   if n < 2 {
     return n;
   } else {
@@ -140,7 +140,7 @@ for i = 0 to 10 {
 }
 assert(sequence == [0,1,1,2,3,5,8,13,21,34,55]);
 
-def fib2(n)         {
+func fib2(n)         {
   if n < 2 {
     return n;
   } else {
@@ -163,5 +163,7 @@ assert(p[2]);
 assert(p[1][2] == 'c');
 
 sum = @sum(1,2,3,4,5,6,7);
-    assert(sum == 29);
+
+assert(sum == 28);
+
 println("全部测试通过.");

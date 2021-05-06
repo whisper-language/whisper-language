@@ -5,7 +5,7 @@ null
 'input'
 'assert'
 'size'
-'def'
+'func'
 'if'
 'else'
 'return'

@@ -41,7 +41,7 @@ public class TLParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'println'", "'print'", "'input'", "'assert'", "'size'", "'def'", 
+			null, "'println'", "'print'", "'input'", "'assert'", "'size'", "'func'", 
 			"'if'", "'else'", "'return'", "'for'", "'while'", "'to'", "'do'", "'end'", 
 			"'in'", "'null'", "'||'", "'&&'", "'=='", "'!='", "'>='", "'<='", "'^'", 
 			"'!'", "'>'", "'<'", "'+'", "'-'", "'*'", "'/'", "'%'", "'{'", "'}'", 

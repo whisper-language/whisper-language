@@ -1,6 +1,7 @@
 fork from https://github.com/bkiers/tiny-language-antlr4
 # 特性
 - 增加内建函数支持 更好的 宿主环境和解释环境的交互
+@开头的函数为内建函数
 如何定义
 ```java
 Scope scope = new Scope();
@@ -15,9 +16,9 @@ EvalVisitor visitor = new EvalVisitor(scope, new HashMap<>(),functions);
 a=1;
 b=2;
 
-def test (a,b)
+func test (a,b){
     return @sum(1,333333);
-end
+}
 
 println(test(1,2));
 

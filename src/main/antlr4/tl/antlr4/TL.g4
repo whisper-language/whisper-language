@@ -101,7 +101,7 @@ Print    : 'print';
 Input    : 'input';
 Assert   : 'assert';
 Size     : 'size';
-Def      : 'def';
+Def      : 'func';
 If       : 'if';
 Else     : 'else';
 Return   : 'return';
