@@ -15,23 +15,20 @@ class Function {
 
   Function(this.parentScope, this.params, this.block);
 
-  TLValue invoke(
-      List<TLValue> args, Map<String, Function> functions, buildFunction) {
-    if (args.length != this.params.length) {
-      throw new EvalException('Illegal Function call');
+  TLValue invoke(List<TLValue> args, Map<String, Function> functions, buildFunction) {
+    if (args.length != params.length) {
+      throw EvalException(msg: "Illegal Function call");
     }
-    Scope scopeNext = new Scope(parentScope, true); // create function scope
+    var scopeNext = Scope(parentScope, true); // create function scope
 
-    for (int i = 0; i < this.params.length; i++) {
-      TLValue value = args[i];
+    for (var i = 0; i < params.length; i++) {
+      var value = args[i];
       //获取每个函数的参数值
-
       scopeNext.assignParam(this.params[i].text, value);
     }
-    EvalVisitor evalVistorNext =
-        new EvalVisitor(scopeNext, functions, buildFunction);
+    EvalVisitor evalVistorNext = new EvalVisitor(scopeNext, functions, buildFunction);
 
-    TLValue ret = TLValue.VOID;
+    var ret = TLValue.VOID;
     try {
       evalVistorNext.visit(this.block);
     } on ReturnValue catch (e) {

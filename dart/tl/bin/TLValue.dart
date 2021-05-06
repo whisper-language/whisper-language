@@ -1,13 +1,22 @@
 class TLValue implements Comparable<TLValue> {
-  static final TLValue NULL = new TLValue();
 
-  static final TLValue VOID = new TLValue();
+  static final Object NULL_OBJECT=Object();
 
-  dynamic value;
+  static final Object VOID_OBJECT=Object();
 
-  TLValue({dynamic v}) {
+  static final TLValue NULL = new TLValue(is_null: true);
+
+  static final TLValue VOID = new TLValue(is_void: true);
+
+  dynamic value = new Object();
+
+  TLValue({dynamic v,bool is_null=false,bool is_void=false}) {
+    if(is_void || is_null){
+      value=v;
+      return;
+    }
     if (v == null) {
-      value = v;
+      throw new Exception("v == null ");
     }
     value = v;
     // only accept boolean, list, number or string types
@@ -17,11 +26,12 @@ class TLValue implements Comparable<TLValue> {
   }
 
   bool asBoolean() {
-    return value as bool;
+    return value.toString().toLowerCase()=='true';
   }
 
   double asDouble() {
-    return value as double;
+
+    return  double.parse(value.toString());
   }
 
   int asInt() {
@@ -33,9 +43,10 @@ class TLValue implements Comparable<TLValue> {
   }
 
   String asString() {
-    return value;
+    return value.toString();
   }
 
+  @override
   bool equals(Object o) {
     if (this == VOID || o == VOID) {
       throw new Exception("can't use VOID: ");
@@ -51,7 +62,18 @@ class TLValue implements Comparable<TLValue> {
       double diff = (this.asDouble() - that.asDouble()).abs();
       return diff < 0.00000000001;
     } else {
-      return this.value.equals(that.value);
+      if(this.isList()){
+        //TODO list
+        return true;
+      }else{
+        if(this.isString()){
+          //TODO STRING
+          print("resssss"+this.asString()==that.asString());
+          return this.asString()==that.asString();
+        }else{
+          return this.value.equals(that.value);
+        }
+      }
     }
   }
 
@@ -100,10 +122,6 @@ class TLValue implements Comparable<TLValue> {
 
   @override
   String toString() {
-    return isNull()
-        ? "NULL"
-        : isVoid()
-            ? "VOID"
-            : value as String;
+    return isNull() ? "NULL" : isVoid() ? "VOID" : value.toString();
   }
 }

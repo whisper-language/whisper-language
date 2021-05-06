@@ -1,15 +1,18 @@
 import 'package:antlr4/antlr4.dart';
 
+import 'EvalVisitor.dart';
 import 'gen/TLLexer.dart';
 import 'gen/TLParser.dart';
 
 void main(List<String> arguments) {
-  Future<InputStream> a=InputStream.fromPath("../../test.pg");
+  var a=InputStream.fromPath('../../test1.pg');
   a.then((value) {
-    TLLexer lexer = new TLLexer(value);
-    TLParser parser = new TLParser(new CommonTokenStream(lexer));
-    // parser.buildParseTree(true);
-    // ParseTree tree = parser.parse();
+    var lexer = TLLexer(value);
+    var parser = TLParser(CommonTokenStream(lexer));
+    parser.buildParseTree;
+    ParseTree tree = parser.parse();
+    var visitor = EvalVisitor(null, new Map(),new Map());
+    visitor.visit(tree);
   });
 
 
