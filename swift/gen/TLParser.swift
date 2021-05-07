@@ -116,6 +116,18 @@ open class TLParser: Parser {
 				listener.exitParse(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitParse(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitParse(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	@discardableResult
 	 open func parse() throws -> ParseContext {
@@ -197,6 +209,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitBlock(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitBlock(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitBlock(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -320,6 +344,18 @@ open class TLParser: Parser {
 				listener.exitStatement(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitStatement(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitStatement(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	@discardableResult
 	 open func statement() throws -> StatementContext {
@@ -411,6 +447,18 @@ open class TLParser: Parser {
 				listener.exitAssignment(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitAssignment(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitAssignment(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	@discardableResult
 	 open func assignment() throws -> AssignmentContext {
@@ -493,6 +541,18 @@ open class TLParser: Parser {
 				listener.exitAssertFunctionCall(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitAssertFunctionCall(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitAssertFunctionCall(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class SizeFunctionCallContext: FunctionCallContext {
 			open
@@ -527,6 +587,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitSizeFunctionCall(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitSizeFunctionCall(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitSizeFunctionCall(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -565,6 +637,18 @@ open class TLParser: Parser {
 				listener.exitPrintlnFunctionCall(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitPrintlnFunctionCall(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitPrintlnFunctionCall(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class BuildInIdentifierFunctionCallContext: FunctionCallContext {
 			open
@@ -599,6 +683,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitBuildInIdentifierFunctionCall(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitBuildInIdentifierFunctionCall(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitBuildInIdentifierFunctionCall(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -637,6 +733,18 @@ open class TLParser: Parser {
 				listener.exitIdentifierFunctionCall(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitIdentifierFunctionCall(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitIdentifierFunctionCall(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class PrintFunctionCallContext: FunctionCallContext {
 			open
@@ -671,6 +779,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitPrintFunctionCall(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitPrintFunctionCall(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitPrintFunctionCall(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -857,6 +977,18 @@ open class TLParser: Parser {
 				listener.exitIfStatement(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitIfStatement(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitIfStatement(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	@discardableResult
 	 open func ifStatement() throws -> IfStatementContext {
@@ -946,6 +1078,18 @@ open class TLParser: Parser {
 				listener.exitIfStat(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitIfStat(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitIfStat(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	@discardableResult
 	 open func ifStat() throws -> IfStatContext {
@@ -1018,6 +1162,18 @@ open class TLParser: Parser {
 				listener.exitElseIfStat(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitElseIfStat(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitElseIfStat(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	@discardableResult
 	 open func elseIfStat() throws -> ElseIfStatContext {
@@ -1082,6 +1238,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitElseStat(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitElseStat(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitElseStat(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -1160,6 +1328,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitFunctionDecl(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitFunctionDecl(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitFunctionDecl(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -1264,6 +1444,18 @@ open class TLParser: Parser {
 				listener.exitForStatement(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitForStatement(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitForStatement(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	@discardableResult
 	 open func forStatement() throws -> ForStatementContext {
@@ -1340,6 +1532,18 @@ open class TLParser: Parser {
 				listener.exitWhileStatement(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitWhileStatement(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitWhileStatement(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	@discardableResult
 	 open func whileStatement() throws -> WhileStatementContext {
@@ -1402,6 +1606,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitIdList(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitIdList(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitIdList(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -1479,6 +1695,18 @@ open class TLParser: Parser {
 				listener.exitExprList(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitExprList(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitExprList(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	@discardableResult
 	 open func exprList() throws -> ExprListContext {
@@ -1551,6 +1779,18 @@ open class TLParser: Parser {
 				listener.exitBoolExpression(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitBoolExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitBoolExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class NumberExpressionContext: ExpressionContext {
 			open
@@ -1573,6 +1813,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitNumberExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitNumberExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitNumberExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -1603,6 +1855,18 @@ open class TLParser: Parser {
 				listener.exitIdentifierExpression(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitIdentifierExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitIdentifierExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class NotExpressionContext: ExpressionContext {
 			open
@@ -1629,6 +1893,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitNotExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitNotExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitNotExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -1663,6 +1939,18 @@ open class TLParser: Parser {
 				listener.exitOrExpression(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitOrExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitOrExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class UnaryMinusExpressionContext: ExpressionContext {
 			open
@@ -1689,6 +1977,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitUnaryMinusExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitUnaryMinusExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitUnaryMinusExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -1721,6 +2021,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitPowerExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitPowerExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitPowerExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -1760,6 +2072,18 @@ open class TLParser: Parser {
 				listener.exitEqExpression(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitEqExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitEqExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class AndExpressionContext: ExpressionContext {
 			open
@@ -1790,6 +2114,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitAndExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitAndExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitAndExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -1824,6 +2160,18 @@ open class TLParser: Parser {
 				listener.exitInExpression(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitInExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitInExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class StringExpressionContext: ExpressionContext {
 			open
@@ -1850,6 +2198,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitStringExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitStringExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitStringExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -1888,6 +2248,18 @@ open class TLParser: Parser {
 				listener.exitExpressionExpression(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitExpressionExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitExpressionExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class AddExpressionContext: ExpressionContext {
 		public var op: Token!
@@ -1923,6 +2295,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitAddExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitAddExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitAddExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -1970,6 +2354,18 @@ open class TLParser: Parser {
 				listener.exitCompExpression(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitCompExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitCompExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class NullExpressionContext: ExpressionContext {
 			open
@@ -1992,6 +2388,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitNullExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitNullExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitNullExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -2020,6 +2428,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitFunctionCallExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitFunctionCallExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitFunctionCallExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -2063,6 +2483,18 @@ open class TLParser: Parser {
 				listener.exitMultExpression(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitMultExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitMultExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class ListExpressionContext: ExpressionContext {
 			open
@@ -2089,6 +2521,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitListExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitListExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitListExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -2127,6 +2571,18 @@ open class TLParser: Parser {
 				listener.exitTernaryExpression(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitTernaryExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitTernaryExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	public class InputExpressionContext: ExpressionContext {
 			open
@@ -2161,6 +2617,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitInputExpression(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitInputExpression(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitInputExpression(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
@@ -2588,6 +3056,18 @@ open class TLParser: Parser {
 				listener.exitList(self)
 			}
 		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitList(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitList(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
+			}
+		}
 	}
 	@discardableResult
 	 open func list() throws -> ListContext {
@@ -2669,6 +3149,18 @@ open class TLParser: Parser {
 		func exitRule(_ listener: ParseTreeListener) {
 			if let listener = listener as? TLListener {
 				listener.exitIndexes(self)
+			}
+		}
+		override open
+		func accept<T>(_ visitor: ParseTreeVisitor<T>) -> T? {
+			if let visitor = visitor as? TLVisitor {
+			    return visitor.visitIndexes(self)
+			}
+			else if let visitor = visitor as? TLBaseVisitor {
+			    return visitor.visitIndexes(self)
+			}
+			else {
+			     return visitor.visitChildren(self)
 			}
 		}
 	}
