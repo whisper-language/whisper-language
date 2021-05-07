@@ -23,11 +23,11 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 
   @override
   TLValue visitFunctionDecl(FunctionDeclContext ctx) {
-    List<TerminalNode> params = ctx.idList() != null ? ctx.idList().Identifiers() : new List<TerminalNode>();
+    var params = ctx.idList() != null ? ctx.idList().Identifiers() : <TerminalNode>[];
     ParseTree block = ctx.block();
-    String id = ctx.Identifier().text + params.length.toString();
+    var id = ctx.Identifier().text + params.length.toString();
     // TODO: throw exception if function is already defined?
-    functions[id] = new Function(scope, params, block);
+    functions[id] = Function(scope, params, block);
     return TLValue.VOID;
   }
 
@@ -121,7 +121,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
       case TLLexer.TOKEN_NEquals:
         return nEq(ctx);
       default:
-        throw new EvalException(msg: "unknown operator type: " + ctx.op.type.toString());
+        throw EvalException(msg: 'unknown operator type: ' + ctx.op.type.toString());
     }
   }
 
@@ -129,30 +129,30 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
     TLValue lhs = this.visit(ctx.expression(0));
     TLValue rhs = this.visit(ctx.expression(1));
     if (lhs == null || rhs == null) {
-      throw new EvalException(ctx: ctx);
+      throw EvalException(ctx: ctx);
     }
 
     // number * number
     if (lhs.isNumber() && rhs.isNumber()) {
-      return new TLValue(v: lhs.asDouble() * rhs.asDouble());
+      return TLValue(v: lhs.asDouble() * rhs.asDouble());
     }
 
     // string * number
     if (lhs.isString() && rhs.isNumber()) {
-      var str = "";
-      int stop = rhs.asDouble().toInt();
+      var str = '';
+      var stop = rhs.asDouble().toInt();
 
-      for (int i = 0; i < stop; i++) {
+      for (var i = 0; i < stop; i++) {
         str += lhs.asString();
       }
-      return new TLValue(v: str);
+      return TLValue(v: str);
     }
 
     // list * number
     if (lhs.isList() && rhs.isNumber()) {
-      List<TLValue> total = [];
-      int stop = rhs.asDouble().toInt();
-      for (int i = 0; i < stop; i++) {
+      var total = <TLValue>[];
+      var stop = rhs.asDouble().toInt();
+      for (var i = 0; i < stop; i++) {
         total.addAll(lhs.asList());
       }
       return new TLValue(v: total);
@@ -197,9 +197,9 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 
     // list + any
     if (lhs.isList()) {
-      List<TLValue> list = lhs.asList();
+      var list = lhs.asList();
       list.add(rhs);
-      return new TLValue(v: list);
+      return TLValue(v: list);
     }
 
     // string + any
@@ -427,7 +427,6 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
     var id = ctx.Identifier().text;
 
     var val = scope.resolve(id, true);
-
 
     if (ctx.indexes() != null) {
       var exps = ctx.indexes().expressions();

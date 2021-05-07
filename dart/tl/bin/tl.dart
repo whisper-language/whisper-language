@@ -5,15 +5,13 @@ import 'gen/TLLexer.dart';
 import 'gen/TLParser.dart';
 
 void main(List<String> arguments) {
-  var a=InputStream.fromPath('../../test1.pg');
+  var a = InputStream.fromPath('../../test.pg');
   a.then((value) {
     var lexer = TLLexer(value);
     var parser = TLParser(CommonTokenStream(lexer));
     parser.buildParseTree;
     ParseTree tree = parser.parse();
-    var visitor = EvalVisitor(null, new Map(),new Map());
+    var visitor = EvalVisitor(null, new Map(), new Map());
     visitor.visit(tree);
   });
-
-
 }
