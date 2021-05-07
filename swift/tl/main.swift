@@ -1,19 +1,20 @@
-//
-//  main.swift
-//  tl
-//
-//  Created by jzx on 2021/5/6.
-//
 import Antlr4;
 
-func main() {
-    var lexer =  TLLexer(CharStreams.fromFileName("test.pg"));
-    var parser =  TLParser(CommonTokenStream(lexer));
-    parser.setBuildParseTree(true);
-    var  tree = parser.parse();
-    var visitor = EvalVisitor(scope, [String: Any](),[String: Any]());
-    visitor.visit(tree);
+func main() throws{
+    do {
+        let source=try ANTLRFileStream.init("test.pg");
+        let lexer =  TLLexer( source);
+        let parser =  try TLParser(CommonTokenStream(lexer));
+        parser.setBuildParseTree(true);
+        let tree = try parser.parse();
+        let visitor = EvalVisitor(parent:nil, function: Dictionary<String, Function>(), buildingFunction: Dictionary<String, Function>());
+        var _ = visitor.visit(tree);
+    }catch let error as TLError {
+        throw error
+    }
 }
 
-main();
+print(#file)
+try main();
+
 

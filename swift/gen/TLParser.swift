@@ -131,7 +131,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func parse() throws -> ParseContext {
-		var _localctx: ParseContext = ParseContext(_ctx, getState())
+        let _localctx: ParseContext = ParseContext(_ctx, getState())
 		try enterRule(_localctx, 0, TLParser.RULE_parse)
 		defer {
 	    		try! exitRule()
@@ -226,7 +226,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func block() throws -> BlockContext {
-		var _localctx: BlockContext = BlockContext(_ctx, getState())
+        let _localctx: BlockContext = BlockContext(_ctx, getState())
 		try enterRule(_localctx, 2, TLParser.RULE_block)
 		var _la: Int = 0
 		defer {
@@ -359,7 +359,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func statement() throws -> StatementContext {
-		var _localctx: StatementContext = StatementContext(_ctx, getState())
+        let _localctx: StatementContext = StatementContext(_ctx, getState())
 		try enterRule(_localctx, 4, TLParser.RULE_statement)
 		defer {
 	    		try! exitRule()
@@ -462,7 +462,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func assignment() throws -> AssignmentContext {
-		var _localctx: AssignmentContext = AssignmentContext(_ctx, getState())
+        let _localctx: AssignmentContext = AssignmentContext(_ctx, getState())
 		try enterRule(_localctx, 6, TLParser.RULE_assignment)
 		var _la: Int = 0
 		defer {
@@ -992,7 +992,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func ifStatement() throws -> IfStatementContext {
-		var _localctx: IfStatementContext = IfStatementContext(_ctx, getState())
+        let _localctx: IfStatementContext = IfStatementContext(_ctx, getState())
 		try enterRule(_localctx, 10, TLParser.RULE_ifStatement)
 		var _la: Int = 0
 		defer {
@@ -1093,7 +1093,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func ifStat() throws -> IfStatContext {
-		var _localctx: IfStatContext = IfStatContext(_ctx, getState())
+        let _localctx: IfStatContext = IfStatContext(_ctx, getState())
 		try enterRule(_localctx, 12, TLParser.RULE_ifStat)
 		defer {
 	    		try! exitRule()
@@ -1177,7 +1177,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func elseIfStat() throws -> ElseIfStatContext {
-		var _localctx: ElseIfStatContext = ElseIfStatContext(_ctx, getState())
+        let _localctx: ElseIfStatContext = ElseIfStatContext(_ctx, getState())
 		try enterRule(_localctx, 14, TLParser.RULE_elseIfStat)
 		defer {
 	    		try! exitRule()
@@ -1255,7 +1255,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func elseStat() throws -> ElseStatContext {
-		var _localctx: ElseStatContext = ElseStatContext(_ctx, getState())
+        let _localctx: ElseStatContext = ElseStatContext(_ctx, getState())
 		try enterRule(_localctx, 16, TLParser.RULE_elseStat)
 		defer {
 	    		try! exitRule()
@@ -1345,7 +1345,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func functionDecl() throws -> FunctionDeclContext {
-		var _localctx: FunctionDeclContext = FunctionDeclContext(_ctx, getState())
+        let _localctx: FunctionDeclContext = FunctionDeclContext(_ctx, getState())
 		try enterRule(_localctx, 18, TLParser.RULE_functionDecl)
 		var _la: Int = 0
 		defer {
@@ -1459,7 +1459,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func forStatement() throws -> ForStatementContext {
-		var _localctx: ForStatementContext = ForStatementContext(_ctx, getState())
+        let _localctx: ForStatementContext = ForStatementContext(_ctx, getState())
 		try enterRule(_localctx, 20, TLParser.RULE_forStatement)
 		defer {
 	    		try! exitRule()
@@ -1547,7 +1547,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func whileStatement() throws -> WhileStatementContext {
-		var _localctx: WhileStatementContext = WhileStatementContext(_ctx, getState())
+        let _localctx: WhileStatementContext = WhileStatementContext(_ctx, getState())
 		try enterRule(_localctx, 22, TLParser.RULE_whileStatement)
 		defer {
 	    		try! exitRule()
@@ -1623,7 +1623,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func idList() throws -> IdListContext {
-		var _localctx: IdListContext = IdListContext(_ctx, getState())
+        let _localctx: IdListContext = IdListContext(_ctx, getState())
 		try enterRule(_localctx, 24, TLParser.RULE_idList)
 		var _la: Int = 0
 		defer {
@@ -1710,7 +1710,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func exprList() throws -> ExprListContext {
-		var _localctx: ExprListContext = ExprListContext(_ctx, getState())
+        let _localctx: ExprListContext = ExprListContext(_ctx, getState())
 		try enterRule(_localctx, 26, TLParser.RULE_exprList)
 		var _la: Int = 0
 		defer {
@@ -2642,6 +2642,7 @@ open class TLParser: Parser {
 		let _parentState: Int = getState()
 		var _localctx: ExpressionContext = ExpressionContext(_ctx, _parentState)
 		var _prevctx: ExpressionContext = _localctx
+        print(_prevctx)
 		let _startState: Int = 28
 		try enterRecursionRule(_localctx, 28, TLParser.RULE_expression, _p)
 		var _la: Int = 0
@@ -3071,7 +3072,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func list() throws -> ListContext {
-		var _localctx: ListContext = ListContext(_ctx, getState())
+        let _localctx: ListContext = ListContext(_ctx, getState())
 		try enterRule(_localctx, 30, TLParser.RULE_list)
 		var _la: Int = 0
 		defer {
@@ -3166,7 +3167,7 @@ open class TLParser: Parser {
 	}
 	@discardableResult
 	 open func indexes() throws -> IndexesContext {
-		var _localctx: IndexesContext = IndexesContext(_ctx, getState())
+        let _localctx: IndexesContext = IndexesContext(_ctx, getState())
 		try enterRule(_localctx, 32, TLParser.RULE_indexes)
 		defer {
 	    		try! exitRule()
