@@ -1,4 +1,4 @@
-package net.crtrpt;
+package net.crtrpt.whisper;
 
 import java.util.List;
 

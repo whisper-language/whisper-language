@@ -1,9 +1,9 @@
-package net.crtrpt;
+package net.crtrpt.whisper;
 
 import java.util.*;
 
-import net.crtrpt.gen.TLLexer;
-import net.crtrpt.gen.TLParser;
+import net.crtrpt.whisper.gen.TLLexer;
+import net.crtrpt.whisper.gen.TLParser;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
