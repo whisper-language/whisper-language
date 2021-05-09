@@ -1,9 +1,11 @@
 #目标
 方便嵌入到各种宿主语言的语言 方便用户扩展功能
+---
 ## 支持宿主语言
-- java √
-- dart √
-- swift 开发中
+- java 已经实现(server android)
+- dart 已经实现(server flutter)
+- swift 开发中(macos)
+- c# 开发中
 
 # 特性
 - 增加内建函数支持 更好的 宿主环境和解释环境的交互
