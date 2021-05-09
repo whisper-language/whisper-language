@@ -14,12 +14,12 @@ import 'gen/TLLexer.dart';
 import 'gen/TLParser.dart';
 
 class EvalVisitor extends TLBaseVisitor<TLValue> {
-  ReturnValue returnValue = new ReturnValue();
+  ReturnValue returnValue = ReturnValue();
   Scope scope;
-  Map<dynamic, dynamic> functions = new Map();
-  Map<dynamic, dynamic> buildFunction = new Map();
+  Map<dynamic, dynamic> functions = {};
+  Map<dynamic, dynamic> buildFunction = {};
 
-  EvalVisitor(this.scope, this.functions, this.buildFunction);
+  EvalVisitor(scope, functions, buildFunction);
 
   @override
   TLValue visitFunctionDecl(FunctionDeclContext ctx) {
@@ -44,30 +44,30 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 
   @override
   TLValue visitUnaryMinusExpression(UnaryMinusExpressionContext ctx) {
-    TLValue v = this.visit(ctx.expression());
+    var v = visit(ctx.expression());
     if (!v.isNumber()) {
-      throw new EvalException(ctx: ctx);
+      throw EvalException(ctx: ctx);
     }
-    return new TLValue(v: -1 * v.asDouble());
+    return TLValue(v: -1 * v.asDouble());
   }
 
   @override
   TLValue visitNotExpression(NotExpressionContext ctx) {
-    TLValue v = this.visit(ctx.expression());
+    var v = visit(ctx.expression());
     if (!v.isBoolean()) {
-      throw new EvalException(ctx: ctx);
+      throw EvalException(ctx: ctx);
     }
-    return new TLValue(v: !v.asBoolean());
+    return TLValue(v: !v.asBoolean());
   }
 
   @override
   TLValue visitPowerExpression(PowerExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
     if (lhs.isNumber() && rhs.isNumber()) {
-      return new TLValue(v: pow(lhs.asDouble(), rhs.asDouble()));
+      return TLValue(v: pow(lhs.asDouble(), rhs.asDouble()));
     }
-    throw new EvalException(ctx: ctx);
+    throw EvalException(ctx: ctx);
   }
 
   @override
@@ -80,7 +80,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
       case TLLexer.TOKEN_Modulus:
         return modulus(ctx);
       default:
-        throw new EvalException(msg: "unknown operator type: " + ctx.op.type.toString());
+        throw EvalException(msg: '位置哦的操作符类型: ${ctx.op.type.toString()}');
     }
   }
 
@@ -92,7 +92,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
       case TLLexer.TOKEN_Subtract:
         return subtract(ctx);
       default:
-        throw new EvalException(msg: "unknown operator type: " + ctx.op.type.toString());
+        throw EvalException(msg: '未知的操作符: ' + ctx.op.type.toString());
     }
   }
 
@@ -108,8 +108,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
       case TLLexer.TOKEN_GTEquals:
         return gtEq(ctx);
       default:
-        print(ctx.op.type.toString() + "==========");
-        throw new EvalException(msg: "unknown operator type: " + ctx.op.type.toString());
+        throw EvalException(msg: '未知的操作符类型: ${ctx.op.type.toString()}');
     }
   }
 
@@ -121,13 +120,13 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
       case TLLexer.TOKEN_NEquals:
         return nEq(ctx);
       default:
-        throw EvalException(msg: 'unknown operator type: ' + ctx.op.type.toString());
+        throw EvalException(msg: '未知的操作符类型: ${ctx.op.type.toString()}');
     }
   }
 
   TLValue multiply(MultExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
     if (lhs == null || rhs == null) {
       throw EvalException(ctx: ctx);
     }
@@ -155,46 +154,39 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
       for (var i = 0; i < stop; i++) {
         total.addAll(lhs.asList());
       }
-      return new TLValue(v: total);
+      return  TLValue(v: total);
     }
 
-    throw new EvalException(ctx: ctx);
+    throw  EvalException(ctx: ctx);
   }
 
   TLValue divide(MultExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
     if (lhs.isNumber() && rhs.isNumber()) {
-      return new TLValue(v: lhs.asDouble() / rhs.asDouble());
+      return  TLValue(v: lhs.asDouble() / rhs.asDouble());
     }
-    throw new EvalException(ctx: ctx);
+    throw  EvalException(ctx: ctx);
   }
 
   TLValue modulus(MultExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
     if (lhs.isNumber() && rhs.isNumber()) {
-      return new TLValue(v: lhs.asDouble() % rhs.asDouble());
+      return  TLValue(v: lhs.asDouble() % rhs.asDouble());
     }
-    throw new EvalException(ctx: ctx);
+    throw  EvalException(ctx: ctx);
   }
 
   TLValue add(AddExpressionContext ctx) {
     var lhs = visit(ctx.expression(0));
     var rhs = visit(ctx.expression(1));
-    print(ctx.expression(0).text);
-    print(ctx.expression(1).text);
-    print(lhs);
-    print(rhs);
     if (lhs == null || rhs == null) {
       throw EvalException(ctx: ctx);
     }
 
     // number + number
     if (lhs.isNumber() && rhs.isNumber()) {
-      // print("left -> "+lhs.value.toString());
-      // print("right -> "+rhs.value.toString());
-      // print("eq -> "+(lhs.asDouble() + rhs.asDouble()).toString());
       return TLValue(v: lhs.asDouble() + rhs.asDouble());
     }
 
@@ -207,75 +199,75 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 
     // string + any
     if (lhs.isString()) {
-      return new TLValue(v: lhs.asString() + "" + rhs.toString());
+      return  TLValue(v: lhs.asString() + '' + rhs.toString());
     }
 
     // any + string
     if (rhs.isString()) {
-      return new TLValue(v: lhs.toString() + "" + rhs.asString());
+      return  TLValue(v: lhs.toString() + '' + rhs.asString());
     }
 
-    return new TLValue(v: lhs.toString() + rhs.toString());
+    return  TLValue(v: lhs.toString() + rhs.toString());
   }
 
   TLValue subtract(AddExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
     if (lhs.isNumber() && rhs.isNumber()) {
-      return new TLValue(v: lhs.asDouble() - rhs.asDouble());
+      return  TLValue(v: lhs.asDouble() - rhs.asDouble());
     }
     if (lhs.isList()) {
-      List<TLValue> list = lhs.asList();
+      var list = lhs.asList();
       list.remove(rhs);
-      return new TLValue(v: list);
+      return  TLValue(v: list);
     }
-    throw new EvalException(ctx: ctx);
+    throw  EvalException(ctx: ctx);
   }
 
   TLValue gtEq(CompExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
     if (lhs.isNumber() && rhs.isNumber()) {
-      return new TLValue(v: lhs.asDouble() >= rhs.asDouble());
+      return  TLValue(v: lhs.asDouble() >= rhs.asDouble());
     }
     if (lhs.isString() && rhs.isString()) {
-      return new TLValue(v: lhs.asString().compareTo(rhs.asString()) >= 0);
+      return  TLValue(v: lhs.asString().compareTo(rhs.asString()) >= 0);
     }
-    throw new EvalException(ctx: ctx);
+    throw  EvalException(ctx: ctx);
   }
 
   TLValue ltEq(CompExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
     if (lhs.isNumber() && rhs.isNumber()) {
-      return new TLValue(v: lhs.asDouble() <= rhs.asDouble());
+      return  TLValue(v: lhs.asDouble() <= rhs.asDouble());
     }
     if (lhs.isString() && rhs.isString()) {
-      return new TLValue(v: lhs.asString().compareTo(rhs.asString()) <= 0);
+      return  TLValue(v: lhs.asString().compareTo(rhs.asString()) <= 0);
     }
-    throw new EvalException(ctx: ctx);
+    throw  EvalException(ctx: ctx);
   }
 
   TLValue gt(CompExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
     if (lhs.isNumber() && rhs.isNumber()) {
-      return new TLValue(v: lhs.asDouble() > rhs.asDouble());
+      return  TLValue(v: lhs.asDouble() > rhs.asDouble());
     }
     if (lhs.isString() && rhs.isString()) {
-      return new TLValue(v: lhs.asString().compareTo(rhs.asString()) > 0);
+      return  TLValue(v: lhs.asString().compareTo(rhs.asString()) > 0);
     }
-    throw new EvalException(ctx: ctx);
+    throw  EvalException(ctx: ctx);
   }
 
   TLValue lt(CompExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
     if (lhs.isNumber() && rhs.isNumber()) {
-      return new TLValue(v: lhs.asDouble() < rhs.asDouble());
+      return  TLValue(v: lhs.asDouble() < rhs.asDouble());
     }
     if (lhs.isString() && rhs.isString()) {
-      return new TLValue(v: lhs.asString().compareTo(rhs.asString()) < 0);
+      return  TLValue(v: lhs.asString().compareTo(rhs.asString()) < 0);
     }
     throw EvalException(ctx: ctx);
   }
@@ -290,9 +282,9 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
   TLValue nEq(EqExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
-    return new TLValue(v: !lhs.equals(rhs));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
+    return TLValue(v: !lhs.equals(rhs));
   }
 
   @override
@@ -317,12 +309,13 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
     return TLValue(v: lhs.asBoolean() || rhs.asBoolean());
   }
 
+  @override
   TLValue visitTernaryExpression(TernaryExpressionContext ctx) {
-    TLValue condition = this.visit(ctx.expression(0));
+    var condition = visit(ctx.expression(0));
     if (condition.asBoolean()) {
-      return this.visit(ctx.expression(1));
+      return visit(ctx.expression(1));
     } else {
-      return this.visit(ctx.expression(2));
+      return visit(ctx.expression(2));
     }
   }
 
@@ -346,14 +339,14 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // Number                                   #numberExpression
   @override
   TLValue visitNumberExpression(NumberExpressionContext ctx) {
-    return new TLValue(v: double.parse(ctx.text));
+    return  TLValue(v: double.parse(ctx.text));
   }
 
 //
 // Bool                                     #boolExpression
   @override
   TLValue visitBoolExpression(BoolExpressionContext ctx) {
-    return new TLValue(v: ctx.text.toLowerCase() == "true");
+    return  TLValue(v: ctx.text.toLowerCase() == 'true');
   }
 
 //
@@ -365,14 +358,14 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 
 //
   TLValue resolveIndexes(TLValue val, List<ExpressionContext> indexes) {
-    for (ExpressionContext ec in indexes) {
-      TLValue idx = this.visit(ec);
+    for (var ec in indexes) {
+      var idx = visit(ec);
       if (!idx.isNumber() || (!val.isList() && !val.isString())) {
-        throw new EvalException(msg: "Problem resolving indexes on " + val.toString() + " at " + idx.toString(), ctx: ec);
+        throw  EvalException(msg: 'Problem resolving indexes on ' + val.toString() + ' at ' + idx.toString(), ctx: ec);
       }
-      int i = idx.asDouble().toInt();
+      var i = idx.asDouble().toInt();
       if (val.isString()) {
-        val = new TLValue(v: val.asString().substring(i, i + 1));
+        val =  TLValue(v: val.asString().substring(i, i + 1));
       } else {
         val = val.asList()[i];
       }
@@ -381,9 +374,9 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-  void setAtIndex(ParserRuleContext ctx, List<ExpressionContext> indexes, TLValue val, TLValue newVal) {
+  void setAtIndex(ParserRuleContext ctx, List<ExpressionContext> indexes, TLValue val, TLValue Val) {
     if (!val.isList()) {
-      throw new EvalException(ctx: ctx);
+      throw  EvalException(ctx: ctx);
     }
     for (var i = 0; i < indexes.length - 1; i++) {
       var idx = visit(indexes[i]);
@@ -396,16 +389,16 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
     if (!idx.isNumber()) {
       throw EvalException(ctx: ctx);
     }
-    val.asList()[idx.asDouble().toInt()] = newVal;
+    val.asList()[idx.asDouble().toInt()] = Val;
   }
 
 //
 // functionCall indexes?                    #functionCallExpression
   @override
   TLValue visitFunctionCallExpression(FunctionCallExpressionContext ctx) {
-    TLValue val = this.visit(ctx.functionCall());
+    var val = visit(ctx.functionCall());
     if (ctx.indexes() != null) {
-      List<ExpressionContext> exps = ctx.indexes().expressions();
+      var exps = ctx.indexes().expressions();
       val = resolveIndexes(val, exps);
     }
     return val;
@@ -415,14 +408,14 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // list indexes?                            #listExpression
   @override
   TLValue visitListExpression(ListExpressionContext ctx) {
-    TLValue val = this.visit(ctx.list());
+    var val = visit(ctx.list());
     if (ctx.indexes() != null) {
-      List<ExpressionContext> exps = ctx.indexes().expressions();
+      var exps = ctx.indexes().expressions();
       val = resolveIndexes(val, exps);
     }
     return val;
   }
-  
+
 // Identifier indexes?                      #identifierExpression
   @override
   TLValue visitIdentifierExpression(IdentifierExpressionContext ctx) {
@@ -440,11 +433,11 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // String indexes?                          #stringExpression
   @override
   TLValue visitStringExpression(StringExpressionContext ctx) {
-    String text = ctx.text;
-    text = text.substring(1, text.length - 1).replaceAll('\\\\(.)', "${1}");
-    TLValue val = new TLValue(v: text);
+    var text = ctx.text;
+    text = text.substring(1, text.length - 1).replaceAll('\\\\(.)', '${1}');
+    var val =  TLValue(v: text);
     if (ctx.indexes() != null) {
-      List<ExpressionContext> exps = ctx.indexes().expressions();
+      var exps = ctx.indexes().expressions();
       val = resolveIndexes(val, exps);
     }
     return val;
@@ -454,9 +447,9 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // '(' expression ')' indexes?              #expressionExpression
   @override
   TLValue visitExpressionExpression(ExpressionExpressionContext ctx) {
-    TLValue val = this.visit(ctx.expression());
+    var val = visit(ctx.expression());
     if (ctx.indexes() != null) {
-      List<ExpressionContext> exps = ctx.indexes().expressions();
+      var exps = ctx.indexes().expressions();
       val = resolveIndexes(val, exps);
     }
     return val;
@@ -471,13 +464,13 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 //     if (inputString != null) {
 //       String text = inputString.text;
 //       text = text.substring(1, text.length - 1).replaceAll('\\\\(.)', "$1");
-//       return new TLValue(new String(Files.readAllBytes(Paths.get(text))));
+//       return  TLValue( String(Files.readAllBytes(Paths.get(text))));
 //     } else {
-//       BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-//       return new TLValue(buffer.readLine());
+//       BufferedReader buffer =  BufferedReader( InputStreamReader(System.in));
+//       return  TLValue(buffer.readLine());
 //     }
 //   } on Exception catch e {
-//     throw new RuntimeException(e);
+//     throw  RuntimeException(e);
 //   }
 // }
 //
@@ -487,14 +480,14 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // ;
   @override
   TLValue visitAssignment(AssignmentContext ctx) {
-    var newVal = visit(ctx.expression());
+    var Val = visit(ctx.expression());
     if (ctx.indexes() != null) {
       var val = scope.resolve(ctx.Identifier().text, true);
       var exps = ctx.indexes().expressions();
-      setAtIndex(ctx, exps, val, newVal);
+      setAtIndex(ctx, exps, val, Val);
     } else {
       var id = ctx.Identifier().text;
-      scope.assign(id, newVal);
+      scope.assign(id, Val);
     }
     return TLValue.VOID;
   }
@@ -512,25 +505,25 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
       }
       return function.invoke(args);
     }
-    throw EvalException(msg:"没有找到方法 ${id}",ctx: ctx);
+    throw EvalException(msg: '没有找到方法 $id', ctx: ctx);
   }
 
 //
 // Identifier '(' exprList? ')' #identifierFunctionCall
   @override
   TLValue visitIdentifierFunctionCall(IdentifierFunctionCallContext ctx) {
-    List<ExpressionContext> params = ctx.exprList() != null ? ctx.exprList().expressions() : [];
-    String id = ctx.Identifier().text + params.length.toString();
+    var params = ctx.exprList() != null ? ctx.exprList().expressions() : [];
+    var id = ctx.Identifier().text + params.length.toString();
     Function function;
 
     if ((function = functions[id]) != null) {
-      List<TLValue> args = [];
+      var args = <TLValue>[];
       for (ExpressionContext param in params) {
-        args.add(this.visit(param));
+        args.add(visit(param));
       }
       return function.invoke(args, functions, buildFunction);
     } else {
-      throw new EvalException(ctx: ctx);
+      throw  EvalException(ctx: ctx);
     }
   }
 
@@ -539,9 +532,9 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   @override
   TLValue visitPrintlnFunctionCall(PrintlnFunctionCallContext ctx) {
     if (ctx.expression() != null) {
-      print(this.visit(ctx.expression()));
+      print(visit(ctx.expression()));
     } else {
-      print("\r\n");
+      print('\r\n');
     }
     return TLValue.VOID;
   }
@@ -550,7 +543,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // Print '(' expression ')'     #printFunctionCall
   @override
   TLValue visitPrintFunctionCall(PrintFunctionCallContext ctx) {
-    print(this.visit(ctx.expression()));
+    print(visit(ctx.expression()));
     return TLValue.VOID;
   }
 
@@ -576,17 +569,17 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // Size '(' expression ')'      #sizeFunctionCall
   @override
   TLValue visitSizeFunctionCall(SizeFunctionCallContext ctx) {
-    TLValue value = this.visit(ctx.expression());
+    var value = visit(ctx.expression());
 
     if (value.isString()) {
-      return new TLValue(v: value.asString().length);
+      return  TLValue(v: value.asString().length);
     }
 
     if (value.isList()) {
-      return new TLValue(v: value.asList().length);
+      return  TLValue(v: value.asList().length);
     }
 
-    throw new EvalException(ctx: ctx);
+    throw  EvalException(ctx: ctx);
   }
 
 //
@@ -608,20 +601,20 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   @override
   TLValue visitIfStatement(IfStatementContext ctx) {
     // if ...
-    if (this.visit(ctx.ifStat().expression()).asBoolean()) {
-      return this.visit(ctx.ifStat().block());
+    if (visit(ctx.ifStat().expression()).asBoolean()) {
+      return visit(ctx.ifStat().block());
     }
 
     // else if ...
-    for (int i = 0; i < ctx.elseIfStats().length; i++) {
-      if (this.visit(ctx.elseIfStat(i).expression()).asBoolean()) {
-        return this.visit(ctx.elseIfStat(i).block());
+    for (var i = 0; i < ctx.elseIfStats().length; i++) {
+      if (visit(ctx.elseIfStat(i).expression()).asBoolean()) {
+        return visit(ctx.elseIfStat(i).block());
       }
     }
 
     // else ...
     if (ctx.elseStat() != null) {
-      return this.visit(ctx.elseStat().block());
+      return visit(ctx.elseStat().block());
     }
 
     return TLValue.VOID;
@@ -633,7 +626,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   @override
   TLValue visitBlock(BlockContext ctx) {
     //新建一个作用域
-    scope = Scope(scope, false); // create new local scope
+    scope = Scope(scope, false); // create  local scope
     for (var fdx in ctx.functionDecls()) {
       visit(fdx);
     }
@@ -659,7 +652,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
     var start = visit(ctx.expression(0)).asDouble().toInt();
     var stop = visit(ctx.expression(1)).asDouble().toInt();
     for (var i = start; i <= stop; i++) {
-      scope.assign(ctx.Identifier().text, new TLValue(v: i));
+      scope.assign(ctx.Identifier().text,  TLValue(v: i));
       var returnValue = visit(ctx.block());
 
       if (returnValue != TLValue.VOID) {
@@ -675,8 +668,8 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // ;
   @override
   TLValue visitWhileStatement(WhileStatementContext ctx) {
-    while (this.visit(ctx.expression()).asBoolean()) {
-      TLValue returnValue = this.visit(ctx.block());
+    while (visit(ctx.expression()).asBoolean()) {
+      var returnValue = visit(ctx.block());
       if (returnValue != TLValue.VOID) {
         return returnValue;
       }
