@@ -15,7 +15,7 @@ class Function {
 
   Function(this.parentScope, this.params, this.block);
 
-  TLValue invoke(List<TLValue> args, Map<String, Function> functions, buildFunction) {
+  TLValue invoke(List<TLValue> args, Map<dynamic, dynamic> functions, buildFunction) {
     if (args.length != params.length) {
       throw EvalException(msg: "Illegal Function call");
     }

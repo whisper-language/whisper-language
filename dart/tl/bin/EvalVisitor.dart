@@ -16,10 +16,10 @@ import 'gen/TLParser.dart';
 class EvalVisitor extends TLBaseVisitor<TLValue> {
   ReturnValue returnValue = new ReturnValue();
   Scope scope;
-  Map<String, Function> functions = new Map();
-  Map<String, BuildInFunction> buildFunction = new Map();
+  Map<dynamic, dynamic> functions = new Map();
+  Map<dynamic, dynamic> buildFunction = new Map();
 
-  EvalVisitor(this.scope, Map<String, Function> this.functions, Map<String, BuildInFunction> this.buildFunction);
+  EvalVisitor(this.scope, this.functions, this.buildFunction);
 
   @override
   TLValue visitFunctionDecl(FunctionDeclContext ctx) {
@@ -182,7 +182,10 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   TLValue add(AddExpressionContext ctx) {
     var lhs = visit(ctx.expression(0));
     var rhs = visit(ctx.expression(1));
-
+    print(ctx.expression(0).text);
+    print(ctx.expression(1).text);
+    print(lhs);
+    print(rhs);
     if (lhs == null || rhs == null) {
       throw EvalException(ctx: ctx);
     }
@@ -274,16 +277,16 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
     if (lhs.isString() && rhs.isString()) {
       return new TLValue(v: lhs.asString().compareTo(rhs.asString()) < 0);
     }
-    throw new EvalException(ctx: ctx);
+    throw EvalException(ctx: ctx);
   }
 
   TLValue eq(EqExpressionContext ctx) {
-    TLValue lhs = this.visit(ctx.expression(0));
-    TLValue rhs = this.visit(ctx.expression(1));
+    var lhs = visit(ctx.expression(0));
+    var rhs = visit(ctx.expression(1));
     if (lhs == null) {
-      throw new EvalException(ctx: ctx);
+      throw EvalException(ctx: ctx);
     }
-    return new TLValue(v: lhs.equals(rhs));
+    return TLValue(v: lhs.equals(rhs));
   }
 
   TLValue nEq(EqExpressionContext ctx) {
@@ -347,14 +350,14 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // Bool                                     #boolExpression
+// Bool                                     #boolExpression
   @override
   TLValue visitBoolExpression(BoolExpressionContext ctx) {
     return new TLValue(v: ctx.text.toLowerCase() == "true");
   }
 
 //
-// // Null                                     #nullExpression
+// Null                                     #nullExpression
   @override
   TLValue visitNullExpression(NullExpressionContext ctx) {
     return TLValue.NULL;
@@ -397,7 +400,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // functionCall indexes?                    #functionCallExpression
+// functionCall indexes?                    #functionCallExpression
   @override
   TLValue visitFunctionCallExpression(FunctionCallExpressionContext ctx) {
     TLValue val = this.visit(ctx.functionCall());
@@ -409,7 +412,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // list indexes?                            #listExpression
+// list indexes?                            #listExpression
   @override
   TLValue visitListExpression(ListExpressionContext ctx) {
     TLValue val = this.visit(ctx.list());
@@ -419,9 +422,8 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
     }
     return val;
   }
-
-//
-// // Identifier indexes?                      #identifierExpression
+  
+// Identifier indexes?                      #identifierExpression
   @override
   TLValue visitIdentifierExpression(IdentifierExpressionContext ctx) {
     var id = ctx.Identifier().text;
@@ -435,8 +437,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
     return val;
   }
 
-//
-// // String indexes?                          #stringExpression
+// String indexes?                          #stringExpression
   @override
   TLValue visitStringExpression(StringExpressionContext ctx) {
     String text = ctx.text;
@@ -450,7 +451,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // '(' expression ')' indexes?              #expressionExpression
+// '(' expression ')' indexes?              #expressionExpression
   @override
   TLValue visitExpressionExpression(ExpressionExpressionContext ctx) {
     TLValue val = this.visit(ctx.expression());
@@ -462,7 +463,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // Input '(' String? ')'                    #inputExpression
+// Input '(' String? ')'                    #inputExpression
 // @override
 //  TLValue visitInputExpression(InputExpressionContext ctx) {
 //   TerminalNode inputString = ctx.String();
@@ -481,9 +482,9 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // }
 //
 //
-// // assignment
-// // : Identifier indexes? '=' expression
-// // ;
+// assignment
+// : Identifier indexes? '=' expression
+// ;
   @override
   TLValue visitAssignment(AssignmentContext ctx) {
     var newVal = visit(ctx.expression());
@@ -511,11 +512,11 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
       }
       return function.invoke(args);
     }
-    throw EvalException(ctx: ctx);
+    throw EvalException(msg:"没有找到方法 ${id}",ctx: ctx);
   }
 
 //
-// // Identifier '(' exprList? ')' #identifierFunctionCall
+// Identifier '(' exprList? ')' #identifierFunctionCall
   @override
   TLValue visitIdentifierFunctionCall(IdentifierFunctionCallContext ctx) {
     List<ExpressionContext> params = ctx.exprList() != null ? ctx.exprList().expressions() : [];
@@ -534,7 +535,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // Println '(' expression? ')'  #printlnFunctionCall
+// Println '(' expression? ')'  #printlnFunctionCall
   @override
   TLValue visitPrintlnFunctionCall(PrintlnFunctionCallContext ctx) {
     if (ctx.expression() != null) {
@@ -546,7 +547,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // Print '(' expression ')'     #printFunctionCall
+// Print '(' expression ')'     #printFunctionCall
   @override
   TLValue visitPrintFunctionCall(PrintFunctionCallContext ctx) {
     print(this.visit(ctx.expression()));
@@ -554,7 +555,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // Assert '(' expression ')'    #assertFunctionCall
+// Assert '(' expression ')'    #assertFunctionCall
   @override
   TLValue visitAssertFunctionCall(AssertFunctionCallContext ctx) {
     var value = visit(ctx.expression());
@@ -572,7 +573,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // Size '(' expression ')'      #sizeFunctionCall
+// Size '(' expression ')'      #sizeFunctionCall
   @override
   TLValue visitSizeFunctionCall(SizeFunctionCallContext ctx) {
     TLValue value = this.visit(ctx.expression());
@@ -589,21 +590,21 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // ifStatement
-// //  : ifStat elseIfStat* elseStat? End
-// //  ;
-// //
-// // ifStat
-// //  : If expression Do block
-// //  ;
-// //
-// // elseIfStat
-// //  : Else If expression Do block
-// //  ;
-// //
-// // elseStat
-// //  : Else Do block
-// //  ;
+// ifStatement
+//  : ifStat elseIfStat* elseStat? End
+//  ;
+//
+// ifStat
+//  : If expression Do block
+//  ;
+//
+// elseIfStat
+//  : Else If expression Do block
+//  ;
+//
+// elseStat
+//  : Else Do block
+//  ;
   @override
   TLValue visitIfStatement(IfStatementContext ctx) {
     // if ...
@@ -631,6 +632,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 // ;
   @override
   TLValue visitBlock(BlockContext ctx) {
+    //新建一个作用域
     scope = Scope(scope, false); // create new local scope
     for (var fdx in ctx.functionDecls()) {
       visit(fdx);
@@ -649,9 +651,9 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // forStatement
-// // : For Identifier '=' expression To expression OBrace block CBrace
-// // ;
+// forStatement
+// : For Identifier '=' expression To expression OBrace block CBrace
+// ;
   @override
   TLValue visitForStatement(ForStatementContext ctx) {
     var start = visit(ctx.expression(0)).asDouble().toInt();
@@ -668,9 +670,9 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// // whileStatement
-// // : While expression OBrace block CBrace
-// // ;
+// whileStatement
+// : While expression OBrace block CBrace
+// ;
   @override
   TLValue visitWhileStatement(WhileStatementContext ctx) {
     while (this.visit(ctx.expression()).asBoolean()) {

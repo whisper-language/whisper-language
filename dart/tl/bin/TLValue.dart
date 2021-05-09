@@ -71,7 +71,8 @@ class TLValue implements Comparable<TLValue> {
           print("resssss"+this.asString()==that.asString());
           return this.asString()==that.asString();
         }else{
-          return this.value.equals(that.value);
+          print("没有找到的 ${this.value}");
+          return this.value==that.value;
         }
       }
     }

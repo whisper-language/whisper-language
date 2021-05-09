@@ -4,7 +4,7 @@ import 'TLValue.dart';
 
 class Scope {
   Scope parent;
-  Map variables = new Map();
+  Map variables = {};
   bool isFunction = false;
 
   Scope(this.parent, this.isFunction);
@@ -21,7 +21,6 @@ class Scope {
       reAssign(var1, value);
     } else {
       // A newly declared variable
-      print("write current scope "+var1+"value"+value.toString());
       variables[var1]= value;
     }
   }
@@ -47,17 +46,13 @@ class Scope {
   }
 
   TLValue resolve(String var1, bool checkParent) {
-
     TLValue value = variables[var1];
-
     if (value != null) {
       return value;
-    } else if (!checkParent && !isGlobalScope()) {
+    } else if (checkParent && !isGlobalScope()) {
       // Let the parent scope look for the variable
-      print("read "+var1+" val "+value.toString());
       return parent.resolve(var1, !(parent.isFunction));
     } else {
-      // Unknown variable
       return null;
     }
   }
