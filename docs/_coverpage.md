@@ -5,7 +5,7 @@
 
 
 [源码](https://github.com/Crtrpt/whisper-language)
-[开始](#readme)
+[开始](README)
 
 
 ![](bg.svg)
