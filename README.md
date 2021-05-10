@@ -4,10 +4,11 @@
 ---
 
 ## 支持宿主语言
-- java 已经实现(server android)
-- dart 已经实现(server flutter)
-- swift 开发中(macos)
-- c_sharp core 开发中(core)
+- java 已经实现
+- dart 已经实现
+- c_sharp 已经实现
+- swift 开发中
+
 
 # 特性
 - 增加内建函数支持 更好的 宿主环境和解释环境的交互
