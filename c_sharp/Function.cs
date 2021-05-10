@@ -1,8 +1,6 @@
-﻿using Antlr.Runtime.Tree;
-using Antlr4.Runtime.Tree;
+﻿using Antlr4.Runtime.Tree;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using whisper_language.gen;
 
 namespace whisper_language

@@ -1,5 +1,17 @@
 // 循环
-sum = @sum(1,2,3,4,5,6,7);
+println("列表查找");
+n = [[1,0,0],[0,1,0],[0,0,1]];
+p = [-1, 'abc', true];
 
-assert(sum == 28);
-print("通过!");
+assert('abc' in p);
+assert([0,1,0] in n);
+assert(n[0][2] == 0);
+assert(n[1][1] == n[2][2]);
+assert(p[2]);
+assert(p[1][2] == 'c');
+
+//调用内建 函数
+//sum = @sum(1,2,3,4,5,6,7);
+//assert(sum == 28);
+
+println("全部测试通过!");

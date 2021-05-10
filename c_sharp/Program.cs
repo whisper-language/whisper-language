@@ -10,17 +10,17 @@ namespace whisper_language
         static void Main(string[] args)
         {
             try {
-                       var a = CharStreams.fromPath("../../../../test.pg");
+                       var a = CharStreams.fromPath("../../../../test1.pg");
                        var lexer = new TLLexer(a);
                        TLParser parser = new TLParser(new CommonTokenStream(lexer));
                        parser.BuildParseTree=true;
                        var tree = parser.parse();
                        Scope scope = new Scope(null,false);
                        var visitor = new EvalVisitor(scope,new Dictionary<string, Function>(), new Dictionary<string, BuildInFunction>());
-                Console.WriteLine("结束");
                 visitor.Visit(tree);
-                   } catch (Exception e) {
+            } catch (Exception e) {
                 Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace.ToString());
                    }
         }
     }

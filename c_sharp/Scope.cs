@@ -7,14 +7,17 @@ namespace whisper_language
 {
     class Scope
     {
-        Scope parent;
+        private Scope parent;
+        
         Dictionary<String, TLValue> variables;
+        
         private bool isFunction;
 
+        internal Scope Parent { get => parent; set => parent = value; }
 
         public Scope(Scope p, bool function)
         {
-            parent = p;
+            Parent = p;
             variables = new Dictionary<string, TLValue>();
             isFunction = function;
         }
@@ -40,7 +43,7 @@ namespace whisper_language
 
         private bool isGlobalScope()
         {
-            return parent == null;
+            return Parent == null;
         }
 
         private void reAssign(String identifier, TLValue value)
@@ -48,13 +51,14 @@ namespace whisper_language
             if (variables.ContainsKey(identifier))
             {
                 // The variable is declared in this scope
+                variables.Remove(identifier);
                 variables.Add(identifier, value);
             }
-            else if (parent != null)
+            else if (Parent != null)
             {
                 // The variable was not declared in this scope, so let
                 // the parent scope re-assign it
-                parent.reAssign(identifier, value);
+                Parent.reAssign(identifier, value);
             }
         }
 
@@ -64,8 +68,8 @@ namespace whisper_language
         }
 
         private TLValue resolve(String var, bool checkParent)
-        {
-            TLValue value = variables[var];
+        { 
+            TLValue value = variables.ContainsKey(var) ? variables[var]:null;
             if (value != null)
             {
                 // The variable resides in this scope
@@ -74,7 +78,7 @@ namespace whisper_language
             else if (checkParent && !isGlobalScope())
             {
                 // Let the parent scope look for the variable
-                return parent.resolve(var, !parent.isFunction);
+                return Parent.resolve(var, !Parent.isFunction);
             }
             else
             {

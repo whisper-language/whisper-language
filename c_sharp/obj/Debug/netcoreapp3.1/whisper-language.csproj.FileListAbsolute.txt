@@ -12,5 +12,4 @@ D:\private\tiny-language-antlr4\c_sharp\bin\Debug\netcoreapp3.1\Antlr4.Runtime.S
 D:\private\tiny-language-antlr4\c_sharp\obj\Debug\netcoreapp3.1\whisper-language.dll
 D:\private\tiny-language-antlr4\c_sharp\obj\Debug\netcoreapp3.1\whisper-language.pdb
 D:\private\tiny-language-antlr4\c_sharp\obj\Debug\netcoreapp3.1\whisper-language.genruntimeconfig.cache
-D:\private\tiny-language-antlr4\c_sharp\bin\Debug\netcoreapp3.1\Antlr3.Runtime.dll
 D:\private\tiny-language-antlr4\c_sharp\obj\Debug\netcoreapp3.1\whisper-language.csproj.CoreCompileInputs.cache

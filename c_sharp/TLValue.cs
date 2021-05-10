@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace whisper_language.gen
@@ -11,7 +12,7 @@ namespace whisper_language.gen
 
         public static  TLValue VOID = new TLValue();
 
-        private Object value;
+        private dynamic value;
 
         public TLValue()
         {
@@ -19,7 +20,7 @@ namespace whisper_language.gen
             value = new Object();
         }
 
-        TLValue(Object v)
+        public TLValue(dynamic v)
         {
             if (v == null)
             {
@@ -27,9 +28,9 @@ namespace whisper_language.gen
             }
             value = v;
             // only accept boolean, list, number or string types
-            if (!(IsBoolean() || isList() || IsNumber() || isString()))
+            if (!(IsBoolean() || isList() || IsNumber() || IsString()))
             {
-                throw new Exception("invalid data type: " + v + " (" + "xxxxx" + ")");
+                throw new Exception("错误的数据类型: " + v + " (" + v.GetType() + ")");
             }
         }
 
@@ -66,7 +67,7 @@ namespace whisper_language.gen
 
         public String asString()
         {
-            return (String)value;
+            return (string)value;
         }
 
     
@@ -74,7 +75,7 @@ namespace whisper_language.gen
         {
             if (this.IsNumber() && that.IsNumber())
             {
-                if (this.equals(that))
+                if (this.Equals(that))
                 {
                     return 0;
                 }
@@ -83,18 +84,18 @@ namespace whisper_language.gen
                     return this.asDouble().CompareTo(that.asDouble());
                 }
             }
-            else if (this.isString() && that.isString())
+            else if (this.IsString() && that.IsString())
             {
                 return this.asString().CompareTo(that.asString());
             }
             else
             {
-                throw new Exception("illegal expression: can't compare `" + this + "` to `" + that + "`");
+                throw new Exception("错误的表达式无法比较 `" + this + "` ~ `" + that + "`");
             }
         }
 
 
-        public bool equals(Object o)
+        override public bool Equals(Object o)
         {
             if (this == VOID || o == VOID)
             {
@@ -111,12 +112,13 @@ namespace whisper_language.gen
             TLValue that = (TLValue)o;
             if (this.IsNumber() && that.IsNumber())
             {
-                
                 double diff = Math.Abs(this.asDouble() - that.asDouble());
                 return diff < 0.00000000001;
             }
-            else
-            {
+            else if (this.isList() && that.isList()) {
+                return Enumerable.SequenceEqual(this.value,that.value);
+            }
+            else{
                 return this.value.Equals(that.value);
             }
         }
@@ -147,11 +149,16 @@ namespace whisper_language.gen
             return this == VOID;
         }
 
-        public bool isString()
+        public bool IsString()
         {
             return value is String;
         }
-
+        override public String ToString()
+        {
+            return isNull() ? "NULL" : isVoid() ? "VOID" : value.ToString();
+        }
 
     }
+
+
 }

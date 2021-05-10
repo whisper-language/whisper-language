@@ -29,6 +29,8 @@ assert(-5 * -5 == 25);
 assert([1,2,3] * 2 == [1,2,3,1,2,3]);
 assert('ab'*3 == "ababab");
 
+
+
 // 幂运算
 assert(2^10 == 1024);
 assert(3^3 == 27);
@@ -147,7 +149,7 @@ func fib2(n)         {
 }
 assert(fib2(4) == 3);
 
-// lists and lookups, `in` operator
+// 列表查找in 操作
 n = [[1,0,0],[0,1,0],[0,0,1]];
 p = [-1, 'abc', true];
 
