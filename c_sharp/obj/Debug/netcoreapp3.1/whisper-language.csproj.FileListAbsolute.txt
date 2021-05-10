@@ -1,0 +1,7 @@
+D:\private\tiny-language-antlr4\c_sharp\bin\Debug\netcoreapp3.1\whisper-language.exe
+D:\private\tiny-language-antlr4\c_sharp\obj\Debug\netcoreapp3.1\whisper-language.csprojAssemblyReference.cache
+D:\private\tiny-language-antlr4\c_sharp\obj\Debug\netcoreapp3.1\whisper-language.AssemblyInfoInputs.cache
+D:\private\tiny-language-antlr4\c_sharp\obj\Debug\netcoreapp3.1\whisper-language.AssemblyInfo.cs
+D:\private\tiny-language-antlr4\c_sharp\bin\Debug\netcoreapp3.1\Antlr4.Runtime.dll
+D:\private\tiny-language-antlr4\c_sharp\bin\Debug\netcoreapp3.1\Antlr4.Extension.dll
+D:\private\tiny-language-antlr4\c_sharp\obj\Debug\netcoreapp3.1\whisper-language.csproj.CopyComplete
