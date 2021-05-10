@@ -228,8 +228,8 @@ Ctrl_Shift+G
 ```
 <dependency>
   <groupId>net.crtrpt</groupId>
-  <artifactId>tiny-language</artifactId>
-  <version>${tiny-language-version}</version>
+  <artifactId>whisper-language</artifactId>
+  <version>${whisper-language-version}</version>
 </dependency>
 ```
 ## (Un)license
