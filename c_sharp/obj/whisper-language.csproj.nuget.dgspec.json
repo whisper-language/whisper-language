@@ -38,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Antlr": {
+              "target": "Package",
+              "version": "[3.5.0.2, )"
+            },
             "Antlr4.Runtime.Standard": {
               "target": "Package",
               "version": "[4.9.2, )"

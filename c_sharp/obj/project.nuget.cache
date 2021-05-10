@@ -1,10 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "Q2JdehINGPw+inXdgSKJbrqrLfWjmxU6cIkwbzSPOq4aYV3BXmz2RwfHV23hEc+iwrhfuEz9LrgInKIZ1il8oA==",
+  "dgSpecHash": "d3gBOlT8Kp56T+jC9yi4OGcQ7+kR3y92pvRThGxHhgk09nt9c8OFYqnPQMTKvd/1jqhfABhLsel90S6AHv/XrQ==",
   "success": true,
   "projectFilePath": "D:\\private\\tiny-language-antlr4\\c_sharp\\whisper-language.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\antlr\\3.5.0.2\\antlr.3.5.0.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\antlr4.runtime.standard\\4.9.2\\antlr4.runtime.standard.4.9.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8”而不是项目目标框架“.NETCoreApp,Version=v3.1”还原包“Antlr 3.5.0.2”。此包可能与项目不完全兼容。",
+      "libraryId": "Antlr",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }
