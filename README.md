@@ -30,11 +30,9 @@
 - @开头的函数为内建函数
 
 ## 需要做的
-
 - 重构代码 使代码更好维护
 - 更多的测试用例
 - 生成 jvm bytecode
-- swift 支持
 - llvm对 os支持
 - codemirror/idea/vscode 语法支持
 - 性能优化
