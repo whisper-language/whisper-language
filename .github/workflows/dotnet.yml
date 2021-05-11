@@ -10,7 +10,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./c_sharp
     steps:
     - uses: actions/checkout@v2
     - name: 构建 .NET
@@ -18,10 +20,10 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: 构建依赖
-      run: dotnet restore c_sharp
+      run: dotnet restore
     - name: 构建
-      run:  dotnet build --no-restore c_sharp
+      run:  dotnet build --no-restore
     - name: 测试
-      run: dotnet test --no-build --verbosity normal c_sharp
+      run: dotnet test --no-build --verbosity normal
     - name: 执行
-      run: dotnet run c_sharp
+      run: dotnet run
