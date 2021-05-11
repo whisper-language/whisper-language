@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: 构建依赖
-      run: dotnet restore
+      run: dotnet restore c_sharp
     - name: 构建
-      run:  dotnet build --no-restore
+      run:  dotnet build --no-restore c_sharp
     - name: 测试
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal c_sharp
