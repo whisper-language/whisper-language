@@ -7,7 +7,9 @@ func main() throws{
         let parser =  try TLParser(CommonTokenStream(lexer));
         parser.setBuildParseTree(true);
         let tree = try parser.parse();
-        let visitor = EvalVisitor(parent:nil, function: Dictionary<String, Function>(), buildingFunction: Dictionary<String, Function>());
+        let visitor = EvalVisitor(parent:nil,
+                                  function: Dictionary<String, Function>(),
+                                  buildingFunction: Dictionary<String, BuildInFunction>());
         var _ = visitor.visit(tree);
     }catch let error as TLError {
         throw error
