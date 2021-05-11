@@ -13,13 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET
+    - name: 构建 .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - name: Restore dependencies
+    - name: 构建依赖
       run: dotnet restore
-    - name: Build
-      run: cd c_sharp && dotnet build --no-restore
-    - name: Test
+    - name: 构建
+      run:  dotnet build --no-restore
+    - name: 测试
       run: dotnet test --no-build --verbosity normal
