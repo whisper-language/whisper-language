@@ -15,9 +15,9 @@
 ## 开发工具支持 
 | 工具      | 进度 |时间 | 描述 | 示例仓库 |  维护人 |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |   ----------- | 
-| codemirror   | 暂未实现       | 2021年5月10日 | - | [仓库](https://github.com/whisper-language/codemirror-plugin)| @Crtrpt |
-| vscode   |   暂未实现       | 2021年5月10日 | - |[仓库](https://github.com/whisper-language/vsc-plugin)| @Crtrpt |
-| idea  | 暂未实现        | 2021年5月10日 | - |[仓库](https://github.com/whisper-language/idea-plugin)| @Crtrpt |
+| codemirror   | 暂未实现       | 2021年5月10日 | codemirror插件 | [仓库](https://github.com/whisper-language/codemirror-plugin)| @Crtrpt |
+| vscode   |   暂未实现       | 2021年5月10日 | vscode扩展 |[仓库](https://github.com/whisper-language/vsc-plugin)| @Crtrpt |
+| idea  | 暂未实现        | 2021年5月10日 | idea 语言扩展 |[仓库](https://github.com/whisper-language/idea-plugin)| @Crtrpt |
 
 
 # 特性
