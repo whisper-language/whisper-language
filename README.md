@@ -20,3 +20,5 @@
 - 生成 jvm bytecode
 - swift 支持
 - llvm os 对os支持
+- 性能优化
+- 增加新特性
