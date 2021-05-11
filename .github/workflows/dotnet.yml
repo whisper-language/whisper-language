@@ -1,0 +1,27 @@
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: 构建 .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: 构建依赖
+      run: dotnet restore c_sharp
+    - name: 构建
+      run:  dotnet build --no-restore c_sharp
+    - name: 测试
+      run: dotnet test --no-build --verbosity normal c_sharp
+    - name: 执行
+      run: dotnet run
