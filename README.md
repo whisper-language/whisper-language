@@ -24,11 +24,13 @@
 | idea  | 暂未实现        | 2021年5月10日 | idea 语言扩展 |[仓库](https://github.com/whisper-language/idea-plugin)| [@Crtrpt](https://github.com/Crtrpt) |
 
 
-# 特性
+## 特性
 - 增加内建函数支持 更好的 宿主环境和解释环境的交互
 - @开头的函数为内建函数
 
-## 需要做的 
+## 需要做的
+
+- 重构代码 使代码更好维护
 - 更多的测试用例
 - 生成 jvm bytecode
 - swift 支持
@@ -36,6 +38,6 @@
 - codemirror/idea/vscode 语法支持
 - 性能优化
 - 增加新特性
-
+- 
 ## 社区
 <a href="https://qm.qq.com/cgi-bin/qm/qr?k=jjkLHY4eFQ3TnKF7K_ZnQOzCt1FwtrY3"><img src="https://pub.idqqimg.com/wpa/images/group.png"/></a>
