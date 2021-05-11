@@ -58,7 +58,6 @@ class Scope {
       // Let the parent scope look for the variable
       return parent.resolve(var1, !(parent.isFunction));
     } else {
-      print("没有找到");
       return null;
     }
   }
