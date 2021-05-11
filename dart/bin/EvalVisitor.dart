@@ -358,6 +358,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
 
 //
   TLValue resolveIndexes(TLValue val, List<ExpressionContext> indexes) {
+    print("查找${val}");
     for (var ec in indexes) {
       var idx = visit(ec);
       if (!idx.isNumber() || (!val.isList() && !val.isString())) {
@@ -393,7 +394,7 @@ class EvalVisitor extends TLBaseVisitor<TLValue> {
   }
 
 //
-// functionCall indexes?                    #functionCallExpression
+// functionCall indexes?                    #functionCallExpression 参数调用
   @override
   TLValue visitFunctionCallExpression(FunctionCallExpressionContext ctx) {
     var val = visit(ctx.functionCall());

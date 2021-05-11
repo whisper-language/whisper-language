@@ -2,6 +2,7 @@ import 'package:antlr4/antlr4.dart';
 
 import 'BuildInFunction.dart';
 import 'EvalVisitor.dart';
+import 'Scope.dart';
 import 'TLValue.dart';
 import 'gen/TLLexer.dart';
 import 'gen/TLParser.dart';
@@ -26,7 +27,7 @@ void main(List<String> arguments) {
     ParseTree tree = parser.parse();
     var functions = {};
     functions['@sum'] = sum();
-    var visitor = EvalVisitor(null, {}, functions);
+    var visitor = EvalVisitor(Scope(null, false), {}, functions);
     visitor.visit(tree);
   });
 }

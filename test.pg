@@ -14,6 +14,7 @@ assert('a' < 's');
 assert('sw' <= 'sw');
 
 // 加减乘除
+
 assert(1 + 999 == 1000);
 assert([1] + 1 == [1,1]);
 assert(2 - -2 == 4);
@@ -75,6 +76,7 @@ if false {
   assert(true);
 }
 
+
 // 函数定义
 func twice(n) {
   temp = n + n; 
@@ -101,7 +103,7 @@ assert(list() == [7,8,9]);
 assert(size(list()) == 3);
 assert(list()[1] == 8);
 
-// naive bubble sort
+// 冒泡排序
 func sort(list) {
   while !sorted(list) {
   }
@@ -138,7 +140,7 @@ for i = 0 to 10 {
 }
 assert(sequence == [0,1,1,2,3,5,8,13,21,34,55]);
 
-func fib2(n)         {
+func fib2(n){
   if n < 2 {
     return n;
   } else {

@@ -61,6 +61,9 @@ public class Scope {
 
     private TLValue resolve(String var, boolean checkParent) {
         TLValue value = variables.get(var);
+        System.out.println(var);
+        System.out.println(checkParent);
+        System.out.println(!isGlobalScope());
         if(value != null) {
             // The variable resides in this scope
             return value;
@@ -71,6 +74,7 @@ public class Scope {
         }
         else {
             // Unknown variable
+            System.out.println("没有找到");
             return null;
         }
     }

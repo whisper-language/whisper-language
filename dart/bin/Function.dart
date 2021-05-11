@@ -17,20 +17,21 @@ class Function {
 
   TLValue invoke(List<TLValue> args, Map<dynamic, dynamic> functions, buildFunction) {
     if (args.length != params.length) {
-      throw EvalException(msg: "Illegal Function call");
+      throw EvalException(msg: '函数调用出错');
     }
+
     var scopeNext = Scope(parentScope, true); // create function scope
 
     for (var i = 0; i < params.length; i++) {
       var value = args[i];
       //获取每个函数的参数值
-      scopeNext.assignParam(this.params[i].text, value);
+      scopeNext.assignParam(params[i].text, value);
     }
-    EvalVisitor evalVistorNext = new EvalVisitor(scopeNext, functions, buildFunction);
+    var evalVistorNext = EvalVisitor(scopeNext, functions, buildFunction);
 
     var ret = TLValue.VOID;
     try {
-      evalVistorNext.visit(this.block);
+      evalVistorNext.visit(block);
     } on ReturnValue catch (e) {
       ret = e.value;
     }

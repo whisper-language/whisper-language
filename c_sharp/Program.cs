@@ -10,7 +10,7 @@ namespace whisper_language
         static void Main(string[] args)
         {
             try {
-                       var a = CharStreams.fromPath("../../../../test1.pg");
+                       var a = CharStreams.fromPath("../test.pg");
                        var lexer = new TLLexer(a);
                        TLParser parser = new TLParser(new CommonTokenStream(lexer));
                        parser.BuildParseTree=true;

@@ -4,7 +4,9 @@ import 'TLValue.dart';
 
 class Scope {
   Scope parent;
+
   Map variables = {};
+
   bool isFunction = false;
 
   Scope(this.parent, this.isFunction);
@@ -15,7 +17,6 @@ class Scope {
   }
 
   void assign(String var1, TLValue value) {
-
     if (resolve(var1, !isFunction) != null) {
 
       reAssign(var1, value);
@@ -42,17 +43,21 @@ class Scope {
   }
 
   bool isGlobalScope() {
+    return false;
     return parent == null;
   }
 
   TLValue resolve(String var1, bool checkParent) {
     TLValue value = variables[var1];
+    print(parent);
+    print("${var1} ${checkParent} ${!isGlobalScope()}");
     if (value != null) {
       return value;
     } else if (checkParent && !isGlobalScope()) {
       // Let the parent scope look for the variable
       return parent.resolve(var1, !(parent.isFunction));
     } else {
+      print("没有找到");
       return null;
     }
   }
