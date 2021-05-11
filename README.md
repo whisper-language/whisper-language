@@ -6,9 +6,9 @@
 ## 支持宿主语言
 | 语言      | 进度 |时间 | 描述 | 示例仓库 |  维护人 |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |   ----------- | 
-| java  8.0    | 已经实现       | 2021年5月10日 | 为了android和server同时使用| 示例| [@Crtrpt](https://github.com/Crtrpt) |
+| java  8.0 [![java](https://github.com/whisper-language/whisper-language/actions/workflows/maven.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/maven.yml)   | 已经实现       | 2021年5月10日 | 为了android和server同时使用| 示例| [@Crtrpt](https://github.com/Crtrpt) |
 | dart  2.0    |   已经实现       | 2021年5月10日 | 为了flutter |示例| [@Crtrpt](https://github.com/Crtrpt) |
-| c_sharp 8.0   | 已经实现        | 2021年5月10日 | 为了windows c# 用户 |示例| [@Crtrpt](https://github.com/Crtrpt) |
+| c_sharp 8.0 [![dotnet](https://github.com/whisper-language/whisper-language/actions/workflows/dotnet.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/dotnet.yml)  | 已经实现        | 2021年5月10日 | 为了windows c# 用户 |示例| [@Crtrpt](https://github.com/Crtrpt) |
 | swift  5.0  | 开发中...        | 2021年5月10日 | 为了macos 或者 ios |示例| [@Crtrpt](https://github.com/Crtrpt) |
 | c  | 开发中...        | - | - |-| @Crtrpt |
 
