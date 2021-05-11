@@ -1,0 +1,13 @@
+name: whisper_language
+description: 一种嵌入式到宿主语言的语言
+version: 0.0.1
+homepage: https://crtrpt.github.io/whisper-language/
+
+environment:
+  sdk: '>=2.10.0 <3.0.0'
+
+dependencies:
+  antlr4: ^4.9.2
+
+dev_dependencies:
+  pedantic: ^1.9.0
