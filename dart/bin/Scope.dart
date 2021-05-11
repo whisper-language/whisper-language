@@ -18,39 +18,40 @@ class Scope {
 
   void assign(String var1, TLValue value) {
     if (resolve(var1, !isFunction) != null) {
-
       reAssign(var1, value);
     } else {
       // A newly declared variable
-      variables[var1]= value;
+      variables[var1] = value;
     }
   }
 
   void reAssign(String identifier, TLValue value) {
-    if(variables.containsKey(identifier)) {
+    if (variables.containsKey(identifier)) {
       // The variable is declared in this scope
       // print("write current scope "+identifier);
-      variables[identifier]= value;
-    }
-    else if(parent != null) {
+      variables[identifier] = value;
+    } else if (parent != null) {
       // print("write parent scope "+identifier);
       // The variable was not declared in this scope, so let
       // the parent scope re-assign it
       parent.reAssign(identifier, value);
-    }else{
+    } else {
       print("parent is null!!");
     }
   }
 
   bool isGlobalScope() {
-    return false;
     return parent == null;
+  }
+
+  bool isFunc() {
+    return isFunction = true;
   }
 
   TLValue resolve(String var1, bool checkParent) {
     TLValue value = variables[var1];
-    print(parent);
-    print("${var1} ${checkParent} ${!isGlobalScope()}");
+    // print(parent);
+    // print("${var1} ${checkParent} ${!isGlobalScope()}");
     if (value != null) {
       return value;
     } else if (checkParent && !isGlobalScope()) {

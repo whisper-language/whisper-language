@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:antlr4/antlr4.dart';
 
 import 'EvalException.dart';
@@ -25,6 +23,7 @@ class Function {
     for (var i = 0; i < params.length; i++) {
       var value = args[i];
       //获取每个函数的参数值
+      // print("${params[i].text}  ${value}");
       scopeNext.assignParam(params[i].text, value);
     }
     var evalVistorNext = EvalVisitor(scopeNext, functions, buildFunction);
