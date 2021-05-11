@@ -24,4 +24,4 @@ jobs:
     - name: 测试
       run: dotnet test --no-build --verbosity normal c_sharp
     - name: 执行
-      run: dotnet run
+      run: dotnet run c_sharp
