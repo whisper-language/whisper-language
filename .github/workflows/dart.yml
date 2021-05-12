@@ -2,9 +2,9 @@ name: Dart
 
 on:
   push:
-    branches: [ master, dart ]
+    branches: [ dart ]
   pull_request:
-    branches: [ master, dart ]
+    branches: [ master ]
 
 jobs:
   build:
