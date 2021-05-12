@@ -5,9 +5,9 @@ name: Java8
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, java ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, java ]
 
 jobs:
   build:
