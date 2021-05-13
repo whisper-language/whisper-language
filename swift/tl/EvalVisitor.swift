@@ -20,7 +20,18 @@ class EvalVisitor :TLBaseVisitor<TLValue> {
         functions![id] = Function(scope: scope,
                                   params: params,
                                   block: block);
-        return TLValue.VOID;
+        return VOID;
     }
     
+    //访问列表
+    override func  visitList(_ ctx:TLParser.ListContext) ->TLValue{
+        var list:[TLValue?]=[];
+        if (ctx.exprList() != nil) {
+            for  ex in ctx.exprList()!.expression().enumerated() {
+                let v=self.visit(ex.element);
+                list.append(v);
+            }
+        }
+        return TLValue(v: list);
+    }
 }

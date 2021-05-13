@@ -7,4 +7,10 @@
 
 enum TLError :Error {
     case negative
+    
+    case isNil
+    
+    case isVoid
+    
+    case runtimeError;
 }

@@ -22,7 +22,7 @@ class Function {
         }
         let evalVistorNext = EvalVisitor(parent: scopeNext, function: functions, buildingFunction: buildFunction)
 
-        let ret = TLValue.VOID;
+        let ret = VOID;
         
         _ = evalVistorNext.visit(block!);
         
