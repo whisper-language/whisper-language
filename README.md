@@ -38,7 +38,7 @@
 - codemirror/idea/vscode 语法支持
 - 性能优化
 - 增加新特性
-- C++ golang 支持
+- C++ golang  python rust  js支持
 
 ## 社区
 <a href="https://qm.qq.com/cgi-bin/qm/qr?k=jjkLHY4eFQ3TnKF7K_ZnQOzCt1FwtrY3"><img src="https://pub.idqqimg.com/wpa/images/group.png"/></a>
