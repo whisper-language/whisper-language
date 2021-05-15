@@ -8,6 +8,7 @@
 [![java](https://github.com/whisper-language/whisper-language/actions/workflows/maven.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/maven.yml)
 [![dotnet](https://github.com/whisper-language/whisper-language/actions/workflows/dotnet.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/dotnet.yml) 
 [![dart](https://github.com/whisper-language/whisper-language/actions/workflows/dart.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/dart.yml) 
+[![Node.js CI](https://github.com/whisper-language/whisper-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/whisper-language/whisper-js/actions/workflows/node.js.yml)
 [![dotnet](https://github.com/whisper-language/whisper-language/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/codeql-analysis.yml) 
 
 ## 支持宿主语言
