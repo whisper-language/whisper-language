@@ -46,7 +46,6 @@ public class TLValue implements Comparable<TLValue> {
         return ((Number)value).byteValue();
     }
 
-
     @SuppressWarnings("unchecked")
     public List<TLValue> asList() {
         return (List<TLValue>)value;
