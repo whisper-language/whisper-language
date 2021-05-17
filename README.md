@@ -3,7 +3,7 @@
 
 方便嵌入到各种宿主语言的语言 方便最终用户扩展功能
 ---
-
+[文档](https://whisper-language.github.io/whisper-language-doc/)
 ## 持续集成
 [![java](https://github.com/whisper-language/whisper-language/actions/workflows/maven.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/maven.yml)
 [![dotnet](https://github.com/whisper-language/whisper-language/actions/workflows/dotnet.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/dotnet.yml) 
