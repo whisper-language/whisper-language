@@ -14,7 +14,7 @@
 
 ### 平台 
 
-android ios windows
+[![ANDROID  Gradle build](https://github.com/whisper-language/whisper-integrated-android/actions/workflows/gradle.yml/badge.svg)](https://github.com/whisper-language/whisper-integrated-android/actions/workflows/gradle.yml) ios windows
 
 ## 支持宿主语言
 | 语言      | 进度 |时间 | 描述 | 示例仓库 |  维护人 |
