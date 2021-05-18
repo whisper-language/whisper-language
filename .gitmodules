@@ -1,9 +1,1 @@
-[submodule "js"]
-	path = js
-	url = git@github.com:whisper-language/whisper-js.git
-[submodule "python"]
-	path = python
-	url = git@github.com:whisper-language/whisper-python.git
-[submodule "cpp"]
-	path = cpp
-	url = git@github.com:whisper-language/whisper-cpp.git
+
