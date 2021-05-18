@@ -2,7 +2,7 @@ name: Dart
 
 on:
   push:
-    branches: [ dart ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
