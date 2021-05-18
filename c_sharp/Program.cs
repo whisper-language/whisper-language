@@ -26,7 +26,7 @@ namespace whisper_language
         {
             try
             {
-                var a = CharStreams.fromPath("../test.pg");
+                var a = CharStreams.fromPath("../case/main.whl");
                 var lexer = new TLLexer(a);
                 TLParser parser = new TLParser(new CommonTokenStream(lexer));
                 parser.BuildParseTree = true;

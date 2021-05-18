@@ -11,7 +11,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 public class Main {
     public static void main(String[] args) {
         try {
-            TLLexer lexer = new TLLexer(CharStreams.fromFileName("test1.pg"));
+            TLLexer lexer = new TLLexer(CharStreams.fromFileName("case/main.whl"));
             TLParser parser = new TLParser(new CommonTokenStream(lexer));
             parser.setBuildParseTree(true);
             ParseTree tree = parser.parse();

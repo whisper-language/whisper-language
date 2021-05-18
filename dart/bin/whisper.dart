@@ -19,7 +19,7 @@ class sum implements BuildInFunction {
 }
 
 void main(List<String> arguments) {
-  var a = InputStream.fromPath('../test.pg');
+  var a = InputStream.fromPath('../case/main.whl');
   a.then((value) {
     var lexer = TLLexer(value);
     var parser = TLParser(CommonTokenStream(lexer));
