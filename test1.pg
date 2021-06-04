@@ -1,8 +1,0 @@
-// 循环
-func squared(n)  {
-  return n*n;
-}
-
-assert(squared(666) == 666^2);
-
-println("全部测试通过!");
