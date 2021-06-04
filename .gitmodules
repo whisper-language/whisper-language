@@ -4,3 +4,6 @@
 [submodule "benchmark"]
 	path = benchmark
 	url = git@github.com:whisper-language/whisper-language-benchmark.git
+[submodule "whisper-java"]
+	path = whisper-java
+	url = git@github.com:whisper-language/whisper-java.git
