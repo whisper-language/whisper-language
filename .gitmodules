@@ -12,7 +12,7 @@
 	url = git@github.com:whisper-language/whisper-csharp.git
 [submodule "whisper-dart"]
 	path = whisper-dart
-	url = https://github.com/whisper-language/whisper-dart
+	url = git@github.com:whisper-language/whisper-dart.git
 [submodule "whisper-swift"]
 	path = whisper-swift
-	url = https://github.com/whisper-language/whisper-swift
+	url = git@github.com:whisper-language/whisper-swift.git
