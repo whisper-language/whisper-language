@@ -6,7 +6,7 @@
 [文档](https://whisper-language.github.io/whisper-language-doc/)
 ## 持续集成
 ### 语言
-[![java](https://github.com/whisper-language/whisper-language/actions/workflows/maven.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/maven.yml)
+[![Java CI with Maven](https://github.com/whisper-language/whisper-java/actions/workflows/maven.yml/badge.svg)](https://github.com/whisper-language/whisper-java/actions/workflows/maven.yml)
 [![dotnet](https://github.com/whisper-language/whisper-language/actions/workflows/dotnet.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/dotnet.yml) 
 [![dart](https://github.com/whisper-language/whisper-language/actions/workflows/dart.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/dart.yml) 
 [![Node.js CI](https://github.com/whisper-language/whisper-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/whisper-language/whisper-js/actions/workflows/node.js.yml)
