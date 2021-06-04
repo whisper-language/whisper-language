@@ -10,3 +10,6 @@
 [submodule "whisper-csharp"]
 	path = whisper-csharp
 	url = git@github.com:whisper-language/whisper-csharp.git
+[submodule "whisper-dart"]
+	path = whisper-dart
+	url = https://github.com/whisper-language/whisper-dart
