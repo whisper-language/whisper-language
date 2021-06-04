@@ -6,7 +6,7 @@
 [文档](https://whisper-language.github.io/whisper-language-doc/)
 ## 持续集成
 ### 语言
-[![java](https://github.com/whisper-language/whisper-language/actions/workflows/maven.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/maven.yml)
+[![Java CI with Maven](https://github.com/whisper-language/whisper-java/actions/workflows/maven.yml/badge.svg)](https://github.com/whisper-language/whisper-java/actions/workflows/maven.yml)
 [![dotnet](https://github.com/whisper-language/whisper-language/actions/workflows/dotnet.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/dotnet.yml) 
 [![dart](https://github.com/whisper-language/whisper-language/actions/workflows/dart.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/dart.yml) 
 [![Node.js CI](https://github.com/whisper-language/whisper-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/whisper-language/whisper-js/actions/workflows/node.js.yml)
@@ -19,10 +19,10 @@
 ## 支持宿主语言
 | 语言      | 进度 |时间 | 描述 | 示例仓库 |  维护人 |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |   ----------- | 
-| java  8.0    | 已经实现       | 2021年5月10日 | 为了android和server同时使用| [java集成](https://github.com/whisper-language/whisper-integrated-java) | [@Crtrpt](https://github.com/Crtrpt) |
-| dart  2.0    |   已经实现       | 2021年5月10日 | 为了flutter |[flutter集成](https://github.com/whisper-language/whisper-integrated-flutter) | 需要帮助[@Crtrpt](https://github.com/Crtrpt) |
-| c_sharp 8.0  | 已经实现        | 2021年5月10日 | 为了windows c# 用户 |[c#集成](https://github.com/whisper-language/whisper-integrated-csharp)| 需要帮助[@Crtrpt](https://github.com/Crtrpt) |
-| swift  5.0  | 开发中...        | 2021年5月10日 | 为了macos 或者 ios |[ios集成](https://github.com/whisper-language/whisper-integrated-ios)| 需要帮助[@Crtrpt](https://github.com/Crtrpt) |
+| [java](https://github.com/whisper-language/whisper-java)  8.0    | 已经实现       | 2021年5月10日 | 为了android和server同时使用| [java集成](https://github.com/whisper-language/whisper-integrated-java) | [@Crtrpt](https://github.com/Crtrpt) |
+|  [dart](https://github.com/whisper-language/whisper-dart)   2.0    |   已经实现       | 2021年5月10日 | 为了flutter |[flutter集成](https://github.com/whisper-language/whisper-integrated-flutter) | 需要帮助[@Crtrpt](https://github.com/Crtrpt) |
+| [csharp](https://github.com/whisper-language/whisper-csharp) 8.0  | 已经实现        | 2021年5月10日 | 为了windows c# 用户 |[c#集成](https://github.com/whisper-language/whisper-integrated-csharp)| 需要帮助[@Crtrpt](https://github.com/Crtrpt) |
+| [swift](https://github.com/whisper-language/whisper-swift)  5.0  | 开发中...        | 2021年5月10日 | 为了macos 或者 ios |[ios集成](https://github.com/whisper-language/whisper-integrated-ios)| 需要帮助[@Crtrpt](https://github.com/Crtrpt) |
 | [js](https://github.com/whisper-language/whisper-js)    | -        | 2021年05月17日  | - |- | - |
 | [python](https://github.com/whisper-language/whisper-python) 3.0    | -        | -  | -  |-| - |
 | [go](https://github.com/whisper-language/whisper-go)   | -        | -  | - |- | - |
