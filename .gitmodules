@@ -22,3 +22,6 @@
 [submodule "whisper-cpp"]
 	path = whisper-cpp
 	url = git@github.com:whisper-language/whisper-cpp.git
+[submodule "whisper-garmmer"]
+	path = whisper-garmmer
+	url = git@github.com:whisper-language/whisper-garmmer.git
