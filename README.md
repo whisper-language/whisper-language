@@ -7,10 +7,8 @@
 ## 持续集成
 ### 语言
 [![Java CI with Maven](https://github.com/whisper-language/whisper-java/actions/workflows/maven.yml/badge.svg)](https://github.com/whisper-language/whisper-java/actions/workflows/maven.yml)
-[![dotnet](https://github.com/whisper-language/whisper-language/actions/workflows/dotnet.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/dotnet.yml) 
-[![dart](https://github.com/whisper-language/whisper-language/actions/workflows/dart.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/dart.yml) 
-[![Node.js CI](https://github.com/whisper-language/whisper-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/whisper-language/whisper-js/actions/workflows/node.js.yml)
-[![dotnet](https://github.com/whisper-language/whisper-language/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/whisper-language/whisper-language/blob/master/.github/workflows/codeql-analysis.yml) 
+[![.NET](https://github.com/whisper-language/whisper-csharp/actions/workflows/dotnet.yml/badge.svg)](https://github.com/whisper-language/whisper-csharp/actions/workflows/dotnet.yml)
+[![Dart](https://github.com/whisper-language/whisper-dart/actions/workflows/dart.yml/badge.svg)](https://github.com/whisper-language/whisper-dart/actions/workflows/dart.yml)
 
 ### 平台 
 
