@@ -7,3 +7,6 @@
 [submodule "whisper-java"]
 	path = whisper-java
 	url = git@github.com:whisper-language/whisper-java.git
+[submodule "whisper-csharp"]
+	path = whisper-csharp
+	url = git@github.com:whisper-language/whisper-csharp.git
