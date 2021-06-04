@@ -25,3 +25,6 @@
 [submodule "whisper-garmmer"]
 	path = whisper-garmmer
 	url = git@github.com:whisper-language/whisper-garmmer.git
+[submodule "whisper-language-test"]
+	path = whisper-language-test
+	url = git@github.com:whisper-language/whisper-language-test.git
