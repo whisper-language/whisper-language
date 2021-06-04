@@ -13,3 +13,6 @@
 [submodule "whisper-dart"]
 	path = whisper-dart
 	url = https://github.com/whisper-language/whisper-dart
+[submodule "whisper-swift"]
+	path = whisper-swift
+	url = https://github.com/whisper-language/whisper-swift
