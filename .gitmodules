@@ -25,3 +25,6 @@
 [submodule "whisper-grammar"]
 	path = whisper-grammar
 	url = git@github.com:whisper-language/whisper-grammar.git
+[submodule "whisper-js"]
+	path = whisper-js
+	url = git@github.com:whisper-language/whisper-js.git
