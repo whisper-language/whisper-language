@@ -16,12 +16,6 @@
 [submodule "whisper-swift"]
 	path = whisper-swift
 	url = git@github.com:whisper-language/whisper-swift.git
-[submodule "whisper-go"]
-	path = whisper-go
-	url = git@github.com:whisper-language/whisper-go.git
-[submodule "whisper-cpp"]
-	path = whisper-cpp
-	url = git@github.com:whisper-language/whisper-cpp.git
 [submodule "whisper-grammar"]
 	path = whisper-grammar
 	url = git@github.com:whisper-language/whisper-grammar.git
