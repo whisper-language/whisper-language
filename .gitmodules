@@ -28,3 +28,6 @@
 [submodule "whisper-js"]
 	path = whisper-js
 	url = git@github.com:whisper-language/whisper-js.git
+[submodule "whisper-ts"]
+	path = whisper-ts
+	url = git@github.com:whisper-language/whisper-ts.git

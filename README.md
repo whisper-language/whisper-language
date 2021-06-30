@@ -27,7 +27,8 @@
 |  [dart](https://github.com/whisper-language/whisper-dart)   2.0    |   已经实现       | 2021年5月10日 | 为了flutter |[flutter集成](https://github.com/whisper-language/whisper-integrated-flutter) | [@Crtrpt](https://github.com/Crtrpt) |0.0.2 |
 | [csharp](https://github.com/whisper-language/whisper-csharp) 8.0  | 已经实现        | 2021年5月10日 | 为了windows c# 用户 |[c#集成](https://github.com/whisper-language/whisper-integrated-csharp)| [@Crtrpt](https://github.com/Crtrpt) |0.0.2 |
 | [swift](https://github.com/whisper-language/whisper-swift)  5.0  | 开发中...        | 2021年5月10日 | 为了macos 或者 ios |[ios集成](https://github.com/whisper-language/whisper-integrated-ios)| [@Crtrpt](https://github.com/Crtrpt) |0.0.1 |
-\
+| [typescript](https://github.com/whisper-language/whisper-ts)  4  | 开发中...        | 2021年6月30日 | 为了 web |[web集成](https://github.com/whisper-language/whisper-integrated-web)| [@Crtrpt](https://github.com/Crtrpt) |0.0.1 |
+
 
 ## 开发工具支持 
 | 工具      | 进度 |时间 | 描述 | 示例仓库 |  维护人 |
