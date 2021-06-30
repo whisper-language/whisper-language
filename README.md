@@ -29,7 +29,6 @@
 | [swift](https://github.com/whisper-language/whisper-swift)  5.0  | 开发中...        | 2021年5月10日 | 为了macos 或者 ios |[ios集成](https://github.com/whisper-language/whisper-integrated-ios)| [@Crtrpt](https://github.com/Crtrpt) |0.0.1 |
 | [typescript](https://github.com/whisper-language/whisper-ts)  4  | 开发中...        | 2021年6月30日 | 为了 web |[web集成](https://github.com/whisper-language/whisper-integrated-web)| [@Crtrpt](https://github.com/Crtrpt) |0.0.1 |
 
-
 ## 开发工具支持 
 | 工具      | 进度 |时间 | 描述 | 示例仓库 |  维护人 |
 | ----------- | ----------- |  ----------- | ----------- | ----------- |   ----------- | 
@@ -62,3 +61,6 @@ TODO
 - 增加 与 或 非  | ^ !
 - 增加 位移操作  >> << >>>
 - 增加 字典 {k:v}
+- 增加 数组 分片/合并 [1..2]  [..a,..b]
+- 增加 委托实现 += 
+- 增加 对象变量监控 watcher
