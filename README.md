@@ -45,12 +45,8 @@
 ## 需要做的
 - 重构代码 使代码更好维护
 - 更多的测试用例
-- 生成 jvm bytecode
-- llvm对 os支持
-- codemirror/idea/vscode 语法支持
 - 性能优化
-- 增加新特性
-- C++ golang  python rust  js支持
+
 
 ## 社区
 <a href="https://qm.qq.com/cgi-bin/qm/qr?k=jjkLHY4eFQ3TnKF7K_ZnQOzCt1FwtrY3"><img src="https://pub.idqqimg.com/wpa/images/group.png"/></a>
